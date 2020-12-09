@@ -1,0 +1,371 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ConexionWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Telefónica</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <link href="Content/fontawesome/css/all.css" rel="stylesheet">
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="/Images/conexionsox.png" class="logoSOX"/>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <img src="/Images/telefonica.png" class="logoTelefonica" />
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="container" id="body-row">
+            <div class="body-content">
+                <%if (Context.User.Identity.IsAuthenticated)
+                    { %>
+                <div class="imagenIzquierda">
+                    <img alt="#" src="/Images/ImagenIzquierda.png" />
+                </div>
+                 <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                     <div class="imagenMenu">
+                    <img alt="#" src="/Images/logoMenu.png" />
+                </div>
+        <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+        <!-- Bootstrap List Group -->
+        <ul class="list-group">
+            <!-- Menu with submenu -->
+            <%if (Context.User.IsInRole("Perfiles"))
+                { %>
+            <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    
+                    <span class="fa fa-user fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Usuarios</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            <!-- Submenu content -->
+            <div id='submenu1' class="collapse sidebar-submenu">
+                <a href="/Perfiles/AdministrarPerfiles" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Administrar permisos</span>
+                </a>
+                <a href="/Perfiles/EditarPerfil" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Editar permiso</span>
+                </a>
+            </div>
+            <!-- Submenu content -->
+            
+            
+            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-id-badge"></span>
+                    <span class="menu-collapsed"> Roles</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            <div id='submenu2' class="collapse sidebar-submenu">
+                <a href="/Roles/ConsultarRoles" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar roles</span>
+                </a>
+                <a href="/Roles/CrearRol" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear rol</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("Riesgos"))
+                { %>
+            <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-skiing"></span>
+                    <span class="menu-collapsed"> Riesgos</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu3' class="collapse sidebar-submenu">
+                <a href="/RiesgoCorporativo/RiesgoCorporativo" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Riesgos corporativos</span>
+                </a>
+                <a href="/RiesgoSOX/ConsultarRiesgosSOX" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar riesgos SOX</span>
+                </a>
+                <a href="/RiesgoSOX/CrearRiesgoSOX" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear riesgo SOX</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("Gobierno"))
+                { %>
+            <a href="#submenu4" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-handshake"></span>
+                    <span class="menu-collapsed"> Gobierno</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu4' class="collapse sidebar-submenu">
+                <a href="/Gobierno/ConsultarDocumentos" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar documentos</span>
+                </a>
+                <a href="/Gobierno/CrearGobierno" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear documento</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("Jefatura"))
+                { %>
+            <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-users"></span>
+                    <span class="menu-collapsed"> Jefatura y áreas</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            <div id='submenu5' class="collapse sidebar-submenu">
+                <a href="/Jefatura/ConsultarJefaturas" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar Jefaturas y Áreas</span>
+                </a>
+                <a href="/Jefatura/CrearJefatura" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear Jefatura y Área</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("ObjetivosControl"))
+                { %>
+            <a href="#submenu6" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-file-signature"></span>
+                    <span class="menu-collapsed">Objetivo de control</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu6' class="collapse sidebar-submenu">
+                <a href="/ObjetivoControl/ConsultarObjetivosControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar objetivos de control</span>
+                </a>
+                <a href="/ObjetivoControl/CrearObjetivoControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear objetivo de control</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("PuntosControl"))
+                { %>
+            <a href="#submenu7" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-fingerprint"></span>
+                    <span class="menu-collapsed">Punto de control</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu7' class="collapse sidebar-submenu">
+                <a href="/PuntoControl/ConsultarPuntosControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar puntos de control</span>
+                </a>
+                <a href="/PuntoControl/CrearPuntoControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear punto de control</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("Aplicacion"))
+                { %>
+            <a href="#submenu8" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-stream"></span>
+                    <span class="menu-collapsed">Aplicaciones</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu8' class="collapse sidebar-submenu">
+                <a href="/Aplicaciones/ConsultarAplicaciones" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar aplicaciones</span>
+                </a>
+                <a href="/Aplicaciones/CrearAplicacion" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear aplicación</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu  content -->
+            <%if (Context.User.IsInRole("MatrizControles"))
+                { %>
+            <a href="#submenu9" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-laptop-code"></span>
+                    <span class="menu-collapsed">Módulo matriz</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu9' class="collapse sidebar-submenu">
+                <a href="/MatrizControles/ConsultarMatrizControles" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar matrices de control</span>
+                </a>
+                <a href="/MatrizControles/CrearMatrizControles" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear matriz de control</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("ActividadControl"))
+                { %>
+            <a href="#submenu10" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-chalkboard-teacher"></span>
+                    <span class="menu-collapsed">Actividad de control</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu10' class="collapse sidebar-submenu">
+                <a href="/ActividadControl/ConsultarActividadesControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar actividades de control</span>
+                </a>
+                <a href="/ActividadControl/CrearActividadControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear actividades de control</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <%if (Context.User.IsInRole("Control"))
+                { %>
+            <a href="#submenu11" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fas fa-atlas"></span>
+                    <span class="menu-collapsed">Control</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu11' class="collapse sidebar-submenu">
+                <a href="/Control/ConsultaControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar Control</span>
+                </a>
+                <a href="/Control/CrearControl" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear Control</span>
+                </a>
+            </div>
+            <%} %>
+            <!-- Submenu content -->
+            <!-- Submenu content -->
+            <a href="#submenu12" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fas fa-server"></span>
+                    <span class="menu-collapsed">Tabla maestra</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            
+            <div id='submenu12' class="collapse sidebar-submenu">
+                <a href="/CamposMatriz/ConsultarCampos" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Consultar campos</span>
+                </a>
+                <a href="/CamposMatriz/CrearCampo" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear campo</span>
+                </a>
+                <a href="/CamposMatriz/CrearOpcion" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Crear opción de campo</span>
+                </a>
+            </div>
+            <!-- Submenu content -->
+        </ul><!-- List Group END-->
+    </div><!-- sidebar-container END -->
+    <!-- MAIN -->
+                <%}%>
+                <div class="contenidoPrincipal">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <!--<li><a runat="server" href="~/Account/Register">Register</a></li>-->
+                                <li><a runat="server" href="~/Account/Login">Autenticarse</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="logoutButton">
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='fa fa-power-off'/>" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                                <li><span class="fa fa-user fa-fw mr-3"></span></li>
+                                <li><%: Context.User.Identity.GetUserName()  %></li>
+                                <br />
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Aplicacion")){ %><span>Aplicaciones, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("ActividadControl")){ %><span>Actividades de Control, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Control")){ %><span>Control, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Gobierno")){ %><span>Gobierno, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Jefatura")){ %><span>Jefatura, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Perfiles")){ %><span>Perfiles,</span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Riesgos")){ %><span>Riesgos,</span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("MatrizControl")){ %><span>Matriz de Control,</span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("ObjetivosControl")){ %><span>Objetivos de Control, </span><%} %></li>
+                                <li><%if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("PuntosControl")){ %><span>Puntos de Control</span><%} %></li>
+                                
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <br />
+            <%--<footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Telefónica Movistar</p>
+            </footer>--%>
+            <script type="text/javascript" src="Content/SiteJS.js"></script>
+        </div>
+            
+    </form>
+</body>
+</html>

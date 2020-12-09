@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConexionSOXService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:11774/ConexionSOXService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:11774/ConexionSOXService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:11774/ConexionSOXService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConexionWeb.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConexionSOXService_ObtenerOpcionesCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerOpcionesCampo" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerOpcionesCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerOpcionesCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerOpcionCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerOpcionCampo" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerOpcionCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerOpcionCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarOpcionCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarOpcionCampo" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarOpcionCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarOpcionCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerCampos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCampos" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerCampos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCamposResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCampo" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarCampo" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRoles" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRol" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRol" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatrizControlPorAprobar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatrizControlPorAprobar" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatrizControlPorAprobar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatrizControlPorAprobarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarMatrizControlPorAprobar_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarMatrizControlPorAprobar" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarMatrizControlPorAprobar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarMatrizControlPorAprobarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatricesControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatricesControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatricesControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatricesControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatrizControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatrizControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerMatrizControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatrizControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarMatrizControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarMatrizControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarMatrizControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarMatrizControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerActividadesControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerActividadesControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerActividadesControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerActividadesControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerActividadControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerActividadControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerActividadControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerActividadControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarActividadControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarActividadControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarActividadControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarActividadControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoActividadControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoActividadControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoActividadControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoActividadControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerAplicaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAplicaciones" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerAplicaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAplicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerAplicacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAplicacion" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerAplicacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAplicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarAplicacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarAplicacion" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarAplicacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarAplicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoAplicaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoAplicaciones" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoAplicaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoAplicacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerPuntosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPuntosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerPuntosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPuntosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerPuntoControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPuntoControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerPuntoControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPuntoControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarPuntosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarPuntosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarPuntosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarPuntosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivPuntosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivPuntosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivPuntosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivPuntosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerObjetivosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerObjetivosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerObjetivosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerObjetivosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerObjetivoControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerObjetivoControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerObjetivoControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerObjetivoControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarObjetivosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarObjetivosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarObjetivosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarObjetivosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoObjetivosControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoObjetivosControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoObjetivosControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoObjetivosControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerJefaturas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJefaturas" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerJefaturas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJefaturasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerJefatura_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJefatura" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerJefatura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJefaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarJefatura_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarJefatura" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarJefatura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarJefaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoJefaturas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoJefaturas" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoJefaturas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoJefaturasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgosCorporativos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgosCorporativos" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgosCorporativos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgosCorporativosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgosSOX_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgosSOX" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgosSOX_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgosSOXResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRegistrosGobierno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRegistrosGobierno" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRegistrosGobierno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRegistrosGobiernoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarRiesgosCorporativos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarRiesgosCorporativos" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarRiesgosCorporativos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarRiesgosCorporativosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoGobierno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoGobierno" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ProcesarArchivoGobierno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarArchivoGobiernoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgoSOX_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgoSOX" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRiesgoSOX_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRiesgoSOXResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRegistroGobierno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRegistroGobierno" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerRegistroGobierno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRegistroGobiernoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRegistroGobierno_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRegistroGobierno" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRegistroGobierno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRegistroGobiernoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRiesgoSOX_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRiesgoSOX" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarRiesgoSOX_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarRiesgoSOXResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerControles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerControles" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerControles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerControlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarControl" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerServidores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServidores" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerServidores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServidoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerServidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServidor" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_ObtenerServidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarServidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarServidor" />
+  </wsdl:message>
+  <wsdl:message name="IConexionSOXService_CrearActualizarServidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearActualizarServidorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConexionSOXService">
+    <wsdl:operation name="ObtenerOpcionesCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerOpcionesCampo" message="tns:IConexionSOXService_ObtenerOpcionesCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerOpcionesCampoResponse" message="tns:IConexionSOXService_ObtenerOpcionesCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerOpcionCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerOpcionCampo" message="tns:IConexionSOXService_ObtenerOpcionCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerOpcionCampoResponse" message="tns:IConexionSOXService_ObtenerOpcionCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarOpcionCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarOpcionCampo" message="tns:IConexionSOXService_CrearActualizarOpcionCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarOpcionCampoResponse" message="tns:IConexionSOXService_CrearActualizarOpcionCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCampos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerCampos" message="tns:IConexionSOXService_ObtenerCampos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerCamposResponse" message="tns:IConexionSOXService_ObtenerCampos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerCampo" message="tns:IConexionSOXService_ObtenerCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerCampoResponse" message="tns:IConexionSOXService_ObtenerCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarCampo" message="tns:IConexionSOXService_CrearActualizarCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarCampoResponse" message="tns:IConexionSOXService_CrearActualizarCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRoles" message="tns:IConexionSOXService_ObtenerRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRolesResponse" message="tns:IConexionSOXService_ObtenerRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRol" message="tns:IConexionSOXService_ObtenerRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRolResponse" message="tns:IConexionSOXService_ObtenerRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRol" message="tns:IConexionSOXService_CrearActualizarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRolResponse" message="tns:IConexionSOXService_CrearActualizarRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatrizControlPorAprobar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatrizControlPorAprobar" message="tns:IConexionSOXService_ObtenerMatrizControlPorAprobar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatrizControlPorAprobarResponse" message="tns:IConexionSOXService_ObtenerMatrizControlPorAprobar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarMatrizControlPorAprobar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControlPorAprobar" message="tns:IConexionSOXService_CrearActualizarMatrizControlPorAprobar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControlPorAprobarResponse" message="tns:IConexionSOXService_CrearActualizarMatrizControlPorAprobar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatricesControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatricesControl" message="tns:IConexionSOXService_ObtenerMatricesControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatricesControlResponse" message="tns:IConexionSOXService_ObtenerMatricesControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatrizControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatrizControl" message="tns:IConexionSOXService_ObtenerMatrizControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerMatrizControlResponse" message="tns:IConexionSOXService_ObtenerMatrizControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarMatrizControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControl" message="tns:IConexionSOXService_CrearActualizarMatrizControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControlResponse" message="tns:IConexionSOXService_CrearActualizarMatrizControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerActividadesControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerActividadesControl" message="tns:IConexionSOXService_ObtenerActividadesControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerActividadesControlResponse" message="tns:IConexionSOXService_ObtenerActividadesControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerActividadControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerActividadControl" message="tns:IConexionSOXService_ObtenerActividadControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerActividadControlResponse" message="tns:IConexionSOXService_ObtenerActividadControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarActividadControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarActividadControl" message="tns:IConexionSOXService_CrearActualizarActividadControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarActividadControlResponse" message="tns:IConexionSOXService_CrearActualizarActividadControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoActividadControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoActividadControl" message="tns:IConexionSOXService_ProcesarArchivoActividadControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoActividadControlResponse" message="tns:IConexionSOXService_ProcesarArchivoActividadControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoControl" message="tns:IConexionSOXService_ProcesarArchivoControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoControlResponse" message="tns:IConexionSOXService_ProcesarArchivoControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAplicaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerAplicaciones" message="tns:IConexionSOXService_ObtenerAplicaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerAplicacionesResponse" message="tns:IConexionSOXService_ObtenerAplicaciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAplicacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerAplicacion" message="tns:IConexionSOXService_ObtenerAplicacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerAplicacionResponse" message="tns:IConexionSOXService_ObtenerAplicacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarAplicacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarAplicacion" message="tns:IConexionSOXService_CrearActualizarAplicacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarAplicacionResponse" message="tns:IConexionSOXService_CrearActualizarAplicacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoAplicaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoAplicaciones" message="tns:IConexionSOXService_ProcesarArchivoAplicaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoAplicacionesResponse" message="tns:IConexionSOXService_ProcesarArchivoAplicaciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPuntosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerPuntosControl" message="tns:IConexionSOXService_ObtenerPuntosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerPuntosControlResponse" message="tns:IConexionSOXService_ObtenerPuntosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPuntoControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerPuntoControl" message="tns:IConexionSOXService_ObtenerPuntoControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerPuntoControlResponse" message="tns:IConexionSOXService_ObtenerPuntoControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarPuntosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarPuntosControl" message="tns:IConexionSOXService_CrearActualizarPuntosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarPuntosControlResponse" message="tns:IConexionSOXService_CrearActualizarPuntosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivPuntosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivPuntosControl" message="tns:IConexionSOXService_ProcesarArchivPuntosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivPuntosControlResponse" message="tns:IConexionSOXService_ProcesarArchivPuntosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerObjetivosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivosControl" message="tns:IConexionSOXService_ObtenerObjetivosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivosControlResponse" message="tns:IConexionSOXService_ObtenerObjetivosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerObjetivoControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControl" message="tns:IConexionSOXService_ObtenerObjetivoControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControlResponse" message="tns:IConexionSOXService_ObtenerObjetivoControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarObjetivosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarObjetivosControl" message="tns:IConexionSOXService_CrearActualizarObjetivosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarObjetivosControlResponse" message="tns:IConexionSOXService_CrearActualizarObjetivosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoObjetivosControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoObjetivosControl" message="tns:IConexionSOXService_ProcesarArchivoObjetivosControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoObjetivosControlResponse" message="tns:IConexionSOXService_ProcesarArchivoObjetivosControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJefaturas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerJefaturas" message="tns:IConexionSOXService_ObtenerJefaturas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerJefaturasResponse" message="tns:IConexionSOXService_ObtenerJefaturas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJefatura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerJefatura" message="tns:IConexionSOXService_ObtenerJefatura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerJefaturaResponse" message="tns:IConexionSOXService_ObtenerJefatura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarJefatura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarJefatura" message="tns:IConexionSOXService_CrearActualizarJefatura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarJefaturaResponse" message="tns:IConexionSOXService_CrearActualizarJefatura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoJefaturas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoJefaturas" message="tns:IConexionSOXService_ProcesarArchivoJefaturas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoJefaturasResponse" message="tns:IConexionSOXService_ProcesarArchivoJefaturas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgosCorporativos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgosCorporativos" message="tns:IConexionSOXService_ObtenerRiesgosCorporativos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgosCorporativosResponse" message="tns:IConexionSOXService_ObtenerRiesgosCorporativos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgosSOX">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgosSOX" message="tns:IConexionSOXService_ObtenerRiesgosSOX_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgosSOXResponse" message="tns:IConexionSOXService_ObtenerRiesgosSOX_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegistrosGobierno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRegistrosGobierno" message="tns:IConexionSOXService_ObtenerRegistrosGobierno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRegistrosGobiernoResponse" message="tns:IConexionSOXService_ObtenerRegistrosGobierno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarRiesgosCorporativos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarRiesgosCorporativos" message="tns:IConexionSOXService_ProcesarRiesgosCorporativos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarRiesgosCorporativosResponse" message="tns:IConexionSOXService_ProcesarRiesgosCorporativos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoGobierno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoGobierno" message="tns:IConexionSOXService_ProcesarArchivoGobierno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ProcesarArchivoGobiernoResponse" message="tns:IConexionSOXService_ProcesarArchivoGobierno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgoSOX">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgoSOX" message="tns:IConexionSOXService_ObtenerRiesgoSOX_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRiesgoSOXResponse" message="tns:IConexionSOXService_ObtenerRiesgoSOX_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegistroGobierno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRegistroGobierno" message="tns:IConexionSOXService_ObtenerRegistroGobierno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerRegistroGobiernoResponse" message="tns:IConexionSOXService_ObtenerRegistroGobierno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRegistroGobierno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRegistroGobierno" message="tns:IConexionSOXService_CrearActualizarRegistroGobierno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRegistroGobiernoResponse" message="tns:IConexionSOXService_CrearActualizarRegistroGobierno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRiesgoSOX">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRiesgoSOX" message="tns:IConexionSOXService_CrearActualizarRiesgoSOX_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarRiesgoSOXResponse" message="tns:IConexionSOXService_CrearActualizarRiesgoSOX_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerControles" message="tns:IConexionSOXService_ObtenerControles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerControlesResponse" message="tns:IConexionSOXService_ObtenerControles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerControl" message="tns:IConexionSOXService_ObtenerControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerControlResponse" message="tns:IConexionSOXService_ObtenerControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarControl" message="tns:IConexionSOXService_CrearActualizarControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarControlResponse" message="tns:IConexionSOXService_CrearActualizarControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServidores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerServidores" message="tns:IConexionSOXService_ObtenerServidores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerServidoresResponse" message="tns:IConexionSOXService_ObtenerServidores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerServidor" message="tns:IConexionSOXService_ObtenerServidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/ObtenerServidorResponse" message="tns:IConexionSOXService_ObtenerServidor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarServidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarServidor" message="tns:IConexionSOXService_CrearActualizarServidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConexionSOXService/CrearActualizarServidorResponse" message="tns:IConexionSOXService_CrearActualizarServidor_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IConexionSOXService" type="tns:IConexionSOXService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerOpcionesCampo">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerOpcionesCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerOpcionCampo">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerOpcionCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarOpcionCampo">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarOpcionCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCampos">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerCampos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCampo">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarCampo">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRoles">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRol">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRol">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatrizControlPorAprobar">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerMatrizControlPorAprobar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarMatrizControlPorAprobar">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControlPorAprobar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatricesControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerMatricesControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatrizControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerMatrizControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarMatrizControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarMatrizControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerActividadesControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerActividadesControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerActividadControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerActividadControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarActividadControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarActividadControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoActividadControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoActividadControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAplicaciones">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerAplicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAplicacion">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerAplicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarAplicacion">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarAplicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoAplicaciones">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoAplicaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPuntosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerPuntosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPuntoControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerPuntoControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarPuntosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarPuntosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivPuntosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivPuntosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerObjetivosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerObjetivoControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarObjetivosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarObjetivosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoObjetivosControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoObjetivosControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJefaturas">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerJefaturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJefatura">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerJefatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarJefatura">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarJefatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoJefaturas">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoJefaturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgosCorporativos">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRiesgosCorporativos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgosSOX">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRiesgosSOX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegistrosGobierno">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRegistrosGobierno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarRiesgosCorporativos">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarRiesgosCorporativos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarArchivoGobierno">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ProcesarArchivoGobierno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRiesgoSOX">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRiesgoSOX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegistroGobierno">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerRegistroGobierno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRegistroGobierno">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarRegistroGobierno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarRiesgoSOX">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarRiesgoSOX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControles">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerControles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarControl">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServidores">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerServidores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServidor">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/ObtenerServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearActualizarServidor">
+      <soap:operation soapAction="http://tempuri.org/IConexionSOXService/CrearActualizarServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConexionSOXService">
+    <wsdl:port name="BasicHttpBinding_IConexionSOXService" binding="tns:BasicHttpBinding_IConexionSOXService">
+      <soap:address location="http://localhost:11774/ConexionSOXService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

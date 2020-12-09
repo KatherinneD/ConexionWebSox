@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="136fee2d-a8e9-4b8e-af55-e39c9e6dcf43" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:11774/ConexionSOXService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ConexionSOXService3.xsd" MetadataType="Schema" ID="9077fcfa-06af-40ff-9c3a-18a1229aef5d" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ConexionSOXService31.xsd" MetadataType="Schema" ID="daac37c3-4710-4a24-9bb9-0cad6564e17c" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ConexionSOXService1.disco" MetadataType="Disco" ID="71bbce85-7618-46be-b1e5-d845644192d6" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?disco" />
+    <MetadataFile FileName="ConexionSOXService32.xsd" MetadataType="Schema" ID="2c2c0964-fd00-4afa-abe6-817735bdb23f" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ConexionSOXService1.wsdl" MetadataType="Wsdl" ID="0d0690be-4395-4239-a62a-ad33d261f2f6" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -39,6 +39,20 @@ namespace ConexionWeb.Models
             return new ApplicationDbContext();
         }
     }
+
+    public class ApplicationRole
+    {
+        public const string PERFILES = "Perfiles";
+        public const string RIESGOS = "Riesgos";
+        public const string GOBIERNO = "Gobierno";
+        public const string JEFATURA = "Jefatura";
+        public const string OBJETIVOS_CONTROL = "ObjetivosControl";
+        public const string PUNTOS_CONTROL = "PuntosControl";
+        public const string APLICAION = "Aplicacion";
+        public const string MATRIZ_CONTROLES = "MatrizControles";
+        public const string ACTIVIDAD_CONTROL = "ActividadControl";
+        public const string CONTROL = "Control";
+    }
 }
 
 #region Helpers
@@ -93,6 +107,75 @@ namespace ConexionWeb
             else
             {
                 response.Redirect("~/");
+            }
+        }
+
+        public static void Initialize(ApplicationDbContext context)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            if (!roleManager.RoleExists(ApplicationRole.PERFILES))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.PERFILES));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.RIESGOS))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.RIESGOS));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.GOBIERNO))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.GOBIERNO));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.JEFATURA))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.JEFATURA));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.OBJETIVOS_CONTROL))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.OBJETIVOS_CONTROL));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.PUNTOS_CONTROL))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.PUNTOS_CONTROL));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.APLICAION))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.APLICAION));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.MATRIZ_CONTROLES))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.MATRIZ_CONTROLES));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.ACTIVIDAD_CONTROL))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.ACTIVIDAD_CONTROL));
+            }
+
+            if (!roleManager.RoleExists(ApplicationRole.CONTROL))
+            {
+                var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.CONTROL));
+            }
+
+            ApplicationUser user = new ApplicationUser() { UserName = "administrador@sistema.com", Email = "administrador@sistema.com", EmailConfirmed = true };
+            if (userManager.FindByEmail(user.Email) == null)
+            {
+                IdentityResult userResult = userManager.Create(user, "@Tek123");
+                if (userResult.Succeeded)
+                {
+                    string[] roles = { ApplicationRole.PERFILES, ApplicationRole.RIESGOS, ApplicationRole.GOBIERNO, ApplicationRole.JEFATURA,
+                        ApplicationRole.OBJETIVOS_CONTROL, ApplicationRole.PUNTOS_CONTROL, ApplicationRole.APLICAION, 
+                        ApplicationRole.MATRIZ_CONTROLES, ApplicationRole.ACTIVIDAD_CONTROL, ApplicationRole.CONTROL };
+                    var result = userManager.AddToRoles(user.Id, roles);
+                }
             }
         }
     }

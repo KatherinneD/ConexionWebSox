@@ -1,4 +1,5 @@
 ﻿using ConexionWeb.DataAcess;
+using ConexionWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,11 +19,14 @@ namespace ConexionWeb
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+            
             // Initialize the product database.
             Database.SetInitializer(new ConexionSOXDatabaseInitializer());
             ConexionSOXDBContext db = new ConexionSOXDBContext();
             db.Database.Initialize(true);
+
+            ApplicationDbContext context = new ApplicationDbContext();
+            IdentityHelper.Initialize(context);
         }
     }
 }

@@ -2286,6 +2286,15 @@
     <Compile Include="MatrizControles\Matriz.ascx.designer.cs">
       <DependentUpon>Matriz.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012101413250_InitialCreate.cs" />
+    <Compile Include="Migrations\202012101413250_InitialCreate.designer.cs">
+      <DependentUpon>202012101413250_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012141528161_UserColumns.cs" />
+    <Compile Include="Migrations\202012141528161_UserColumns.designer.cs">
+      <DependentUpon>202012141528161_UserColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ObjetivoControl\ConsultarObjetivosControl.aspx.cs">
       <DependentUpon>ConsultarObjetivosControl.aspx</DependentUpon>
@@ -2414,6 +2423,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ConexionSOXService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012101413250_InitialCreate.resx">
+      <DependentUpon>202012101413250_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012141528161_UserColumns.resx">
+      <DependentUpon>202012141528161_UserColumns.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

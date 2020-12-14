@@ -13,6 +13,11 @@ namespace ConexionWeb.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string Name { get; set; }
+        public string Cargo { get; set; }
+        public string Jefatura { get; set; }
+        public string Area { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -171,9 +176,10 @@ namespace ConexionWeb
                 IdentityResult userResult = userManager.Create(user, "@Tek123");
                 if (userResult.Succeeded)
                 {
-                    string[] roles = { ApplicationRole.PERFILES, ApplicationRole.RIESGOS, ApplicationRole.GOBIERNO, ApplicationRole.JEFATURA,
-                        ApplicationRole.OBJETIVOS_CONTROL, ApplicationRole.PUNTOS_CONTROL, ApplicationRole.APLICAION, 
-                        ApplicationRole.MATRIZ_CONTROLES, ApplicationRole.ACTIVIDAD_CONTROL, ApplicationRole.CONTROL };
+                    string[] roles = { ApplicationRole.PERFILES, ApplicationRole.RIESGOS, ApplicationRole.GOBIERNO, 
+                        ApplicationRole.JEFATURA, ApplicationRole.OBJETIVOS_CONTROL, ApplicationRole.PUNTOS_CONTROL, 
+                        ApplicationRole.APLICAION, ApplicationRole.MATRIZ_CONTROLES, ApplicationRole.ACTIVIDAD_CONTROL, 
+                        ApplicationRole.CONTROL };
                     var result = userManager.AddToRoles(user.Id, roles);
                 }
             }

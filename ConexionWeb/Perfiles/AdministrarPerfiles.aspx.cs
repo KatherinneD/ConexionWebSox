@@ -36,11 +36,39 @@ namespace ConexionWeb.Perfiles
 
         private void CargarPerfiles()
         {
-            
+            var userMngr = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            this.gvUsuarios.DataSource = userMngr.Users.ToList();
+            this.gvUsuarios.DataBind();
+
             var roleStore = new RoleStore<IdentityRole>();
             var roleMngr = new RoleManager<IdentityRole>(roleStore);
             this.gvRoles.DataSource = roleMngr.Roles.ToList();
             this.gvRoles.DataBind();
+        }
+
+        protected void gvUsuarios_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                GridViewRow fila = e.Row;
+                ImageButton imageControl = fila.FindControl("editButton") as ImageButton;
+                if (imageControl != null)
+                    imageControl.PostBackUrl = "/Perfiles/EditarPerfil.aspx?Rol=" + fila.Cells[0].Text;
+                ListBox vista = fila.FindControl("listUsuarios") as ListBox;
+                ApplicationUser user = e.Row.DataItem as ApplicationUser;
+                List<string> rolesDeUsuario = new List<string>();
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                foreach (var rol in user.Roles)
+                {
+                    rolesDeUsuario.Add(rol.ToString());
+                }
+
+                if (rolesDeUsuario.Count() > 0 && vista != null)
+                {
+                    vista.DataSource = rolesDeUsuario;
+                    vista.DataBind();
+                }
+            }
         }
 
         protected void gvRoles_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
@@ -96,6 +124,8 @@ namespace ConexionWeb.Perfiles
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 IdentityResult result = manager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);
             }
+
+            lblConfirmacion.Text = "Se ha cargado correctamente el archivo de usuarios.";
         }
 
         private string GuardarArchivoLocal(string nombreArchivo, byte[] bytes)

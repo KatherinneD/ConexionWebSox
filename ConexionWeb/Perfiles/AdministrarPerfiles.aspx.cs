@@ -126,6 +126,7 @@ namespace ConexionWeb.Perfiles
             }
 
             lblConfirmacion.Text = "Se ha cargado correctamente el archivo de usuarios.";
+            CargarPerfiles();
         }
 
         private string GuardarArchivoLocal(string nombreArchivo, byte[] bytes)

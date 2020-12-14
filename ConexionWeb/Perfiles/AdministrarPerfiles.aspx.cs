@@ -114,11 +114,12 @@ namespace ConexionWeb.Perfiles
             foreach (var item in records)
             {
                 var user = new ApplicationUser() { 
-                    UserName = item.Usuario, 
+                    UserName = item.Usuario,
                     Email = item.Usuario + "@movistar.com",
-                    Name = item.Nombre,
+                    Nombre = item.Nombre,
+                    Identificacion = item.Identificacion,
                     Cargo = item.Cargo,
-                    Jefatura = item.Jefatura,
+                    Jefatura = item.Jefatura.Replace(";;", ""),
                     EmailConfirmed = true
                 };
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();

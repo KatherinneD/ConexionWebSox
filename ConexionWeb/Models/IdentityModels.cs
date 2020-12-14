@@ -8,15 +8,26 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ConexionWeb.Models;
 using System.Configuration;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConexionWeb.Models
 {
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string Name { get; set; }
+        [StringLength(256)]
+        public string Nombre { get; set; }
+        
+        [StringLength(100)]
+        public string Identificacion { get; set; }
+        
+        [StringLength(256)]
         public string Cargo { get; set; }
+        
+        [StringLength(256)]
         public string Jefatura { get; set; }
+        
+        [StringLength(256)]
         public string Area { get; set; }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)

@@ -24,7 +24,8 @@
     <br />
     <asp:GridView ID="gvUsuarios" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvUsuarios_RowDataBound">
         <Columns>
-            <asp:BoundField DataField="Name" HeaderText="Nombre" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+            <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
             <asp:BoundField DataField="UserName" HeaderText="Usuario" />
             <asp:BoundField DataField="Cargo" HeaderText="Cargo" />
             <asp:BoundField DataField="Jefatura" HeaderText="Jefatura" />

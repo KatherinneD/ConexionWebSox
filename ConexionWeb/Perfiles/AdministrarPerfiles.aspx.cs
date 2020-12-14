@@ -39,19 +39,7 @@ namespace ConexionWeb.Perfiles
             
             var roleStore = new RoleStore<IdentityRole>();
             var roleMngr = new RoleManager<IdentityRole>(roleStore);
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            roleMngr.Create(new IdentityRole("Riesgos"));
-            roleMngr.Create(new IdentityRole("Jefatura"));
-            roleMngr.Create(new IdentityRole("Gobierno"));
-            roleMngr.Create(new IdentityRole("Perfiles")); 
-            roleMngr.Create(new IdentityRole("ObjetivosControl"));
-            roleMngr.Create(new IdentityRole("PuntosControl"));
-            roleMngr.Create(new IdentityRole("Aplicacion"));
-            roleMngr.Create(new IdentityRole("Control"));
-            roleMngr.Create(new IdentityRole("ActividadControl"));
-            roleMngr.Create(new IdentityRole("MatrizControles")); 
-             var roles = roleMngr.Roles.ToList();
-            this.gvRoles.DataSource = roles;
+            this.gvRoles.DataSource = roleMngr.Roles.ToList();
             this.gvRoles.DataBind();
         }
 
@@ -97,7 +85,14 @@ namespace ConexionWeb.Perfiles
             var records = engine.ReadFile(path);
             foreach (var item in records)
             {
-                var user = new ApplicationUser() { UserName = item.Usuario, Email = item.Usuario + "@movistar.com" };
+                var user = new ApplicationUser() { 
+                    UserName = item.Usuario, 
+                    Email = item.Usuario + "@movistar.com",
+                    Name = item.Nombre,
+                    Cargo = item.Cargo,
+                    Jefatura = item.Jefatura,
+                    EmailConfirmed = true
+                };
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 IdentityResult result = manager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);
             }

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ConexionWeb.Models;
+using System.Configuration;
 
 namespace ConexionWeb.Models
 {
@@ -173,7 +174,7 @@ namespace ConexionWeb
             ApplicationUser user = new ApplicationUser() { UserName = "administrador@sistema.com", Email = "administrador@sistema.com", EmailConfirmed = true };
             if (userManager.FindByEmail(user.Email) == null)
             {
-                IdentityResult userResult = userManager.Create(user, "@Tek123");
+                IdentityResult userResult = userManager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);
                 if (userResult.Succeeded)
                 {
                     string[] roles = { ApplicationRole.PERFILES, ApplicationRole.RIESGOS, ApplicationRole.GOBIERNO, 

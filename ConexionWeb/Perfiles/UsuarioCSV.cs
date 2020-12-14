@@ -10,6 +10,10 @@ namespace ConexionWeb.Perfiles
     public class UsuarioCSV
     {
         public string Usuario { get; set; }
-        public string Email { get; set; }
+        public string Identificacion { get; set; }
+        public string Nombre { get; set; }
+        public string Estado { get; set; }
+        public string Cargo { get; set; }
+        public string Jefatura { get; set; }
     }
 }

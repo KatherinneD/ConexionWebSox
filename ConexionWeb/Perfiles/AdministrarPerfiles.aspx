@@ -17,12 +17,14 @@
         </div>
     </div>
     <br />
-    <br />
     <asp:Label runat="server" ID="lblMessage" CssClass="lblError"></asp:Label>
     <br />
     <asp:Label runat="server" ID="lblConfirmacion" CssClass="lblConfirmacion"></asp:Label>
     <br />
-    <asp:GridView ID="gvUsuarios" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvUsuarios_RowDataBound">
+    <div style="text-align: right; margin-bottom: 20px;">
+        <asp:Button runat="server" CssClass="btn btn-success right" ID="btnCrearUsuario" Text="Crear un usuario" OnClick="btnCrearUsuario_Click" />
+    </div>
+    <asp:GridView ID="gvUsuarios" DataKeyNames="Id" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvUsuarios_RowDataBound">
         <Columns>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
             <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
@@ -36,7 +38,8 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ImageUrl="~/Images/edit.png" />
+                    <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ToolTip="Editar" ImageUrl="~/Images/edit.png" />
+                    <asp:ImageButton ID="statusButton" CssClass="gridButton" runat="server" ToolTip="Activar / Desactivar" ImageUrl="~/Images/approve.png" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -52,7 +55,7 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ImageUrl="~/Images/edit.png" />
+                    <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ToolTip="Editar" ImageUrl="~/Images/edit.png" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

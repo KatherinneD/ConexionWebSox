@@ -53,21 +53,15 @@ namespace ConexionWeb.Perfiles
                 GridViewRow fila = e.Row;
                 ImageButton imageControl = fila.FindControl("editButton") as ImageButton;
                 if (imageControl != null)
-                    imageControl.PostBackUrl = "/Perfiles/EditarPerfil.aspx?Rol=" + fila.Cells[0].Text;
-                ListBox vista = fila.FindControl("listUsuarios") as ListBox;
-                ApplicationUser user = e.Row.DataItem as ApplicationUser;
-                List<string> rolesDeUsuario = new List<string>();
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                foreach (var rol in user.Roles)
-                {
-                    rolesDeUsuario.Add(rol.ToString());
-                }
+                    imageControl.PostBackUrl = "/Perfiles/EditarUsuario.aspx?User=" + gvUsuarios.DataKeys[fila.RowIndex].Values[0];
 
-                if (rolesDeUsuario.Count() > 0 && vista != null)
-                {
-                    vista.DataSource = rolesDeUsuario;
-                    vista.DataBind();
-                }
+                ListBox control = fila.FindControl("listRoles") as ListBox;
+                ApplicationUser user = e.Row.DataItem as ApplicationUser;
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                List<string> roles = manager.GetRoles(user.Id).ToList();
+
+                control.DataSource = roles;
+                control.DataBind();
             }
         }
 
@@ -78,7 +72,7 @@ namespace ConexionWeb.Perfiles
                 GridViewRow fila = e.Row;
                 ImageButton imageControl = fila.FindControl("editButton") as ImageButton;
                 if (imageControl != null)
-                    imageControl.PostBackUrl = "/Perfiles/EditarPerfil.aspx?Rol=" + fila.Cells[0].Text;
+                    imageControl.PostBackUrl = "/Perfiles/EditarPerfil.aspx?User=" + fila.Cells[0].Text;
                 ListBox vista = fila.FindControl("listUsuarios") as ListBox;
                 IdentityRole rol = e.Row.DataItem as IdentityRole;
                 List<string> usuariosEnRol = new List<string>();
@@ -135,6 +129,11 @@ namespace ConexionWeb.Perfiles
             string path = Path.Combine(ConfigurationManager.AppSettings["RutaArchivosLocales"], nombreArchivo);
             File.WriteAllBytes(path, bytes);
             return path;
+        }
+
+        protected void btnCrearUsuario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Perfiles/NuevoUsuario.aspx");
         }
     }
 }

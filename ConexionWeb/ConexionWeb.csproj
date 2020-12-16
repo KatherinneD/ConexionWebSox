@@ -1986,6 +1986,8 @@
     <Content Include="ObjetivoControl\CrearObjetivoControl.aspx" />
     <Content Include="Perfiles\AdministrarPerfiles.aspx" />
     <Content Include="Perfiles\EditarPerfil.aspx" />
+    <Content Include="Perfiles\EditarUsuario.aspx" />
+    <Content Include="Perfiles\NuevoUsuario.aspx" />
     <Content Include="PuntoControl\ConsultarPuntosControl.aspx" />
     <Content Include="PuntoControl\CrearPuntoControl.aspx" />
     <Content Include="RiesgoCorporativo\RiesgoCorporativo.aspx" />
@@ -2327,6 +2329,20 @@
     </Compile>
     <Compile Include="Perfiles\EditarPerfil.aspx.designer.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfiles\EditarUsuario.aspx.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfiles\EditarUsuario.aspx.designer.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfiles\NuevoUsuario.aspx.cs">
+      <DependentUpon>NuevoUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfiles\NuevoUsuario.aspx.designer.cs">
+      <DependentUpon>NuevoUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfiles\UsuarioCSV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -85,9 +85,11 @@
                             <a href="/Perfiles/AdministrarPerfiles" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Administrar permisos</span>
                             </a>
+                            <!--
                             <a href="/Perfiles/EditarPerfil" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Editar permiso</span>
                             </a>
+                            -->
                         </div>
                         <!-- Submenu content -->
 

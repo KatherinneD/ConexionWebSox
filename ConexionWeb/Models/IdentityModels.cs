@@ -30,6 +30,8 @@ namespace ConexionWeb.Models
         [StringLength(256)]
         public string Area { get; set; }
 
+        public bool Habilitado { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -31,6 +31,15 @@ namespace ConexionWeb.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
+                var user = manager.FindByEmail(Email.Text);
+                if (user != null)
+                {
+                    if (!user.Habilitado)
+                    {
+                        Response.Redirect("/Account/Lockout");
+                    }
+                }
+
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);

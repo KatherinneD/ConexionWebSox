@@ -36,7 +36,6 @@ namespace ConexionWeb.Perfiles
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { 
                 UserName = Email.Text, 
                 Email = Email.Text,
@@ -44,7 +43,8 @@ namespace ConexionWeb.Perfiles
                 Identificacion = Identificacion.Text,
                 Cargo = Cargo.Text,
                 Jefatura = Jefatura.Text,
-                Area = Area.Text
+                Area = Area.Text,
+                Habilitado = true
             };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)

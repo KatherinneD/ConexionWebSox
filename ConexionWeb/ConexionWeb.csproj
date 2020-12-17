@@ -2300,6 +2300,10 @@
     <Compile Include="Migrations\202012141656575_UpdateUserIdentity.designer.cs">
       <DependentUpon>202012141656575_UpdateUserIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012171620415_EnableUserField.cs" />
+    <Compile Include="Migrations\202012171620415_EnableUserField.designer.cs">
+      <DependentUpon>202012171620415_EnableUserField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ObjetivoControl\ConsultarObjetivosControl.aspx.cs">
@@ -2453,6 +2457,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012141656575_UpdateUserIdentity.resx">
       <DependentUpon>202012141656575_UpdateUserIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171620415_EnableUserField.resx">
+      <DependentUpon>202012171620415_EnableUserField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

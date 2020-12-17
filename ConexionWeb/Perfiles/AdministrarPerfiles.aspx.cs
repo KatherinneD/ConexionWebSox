@@ -108,13 +108,14 @@ namespace ConexionWeb.Perfiles
             foreach (var item in records)
             {
                 var user = new ApplicationUser() { 
-                    UserName = item.Usuario,
+                    UserName = item.Usuario + "@movistar.com",
                     Email = item.Usuario + "@movistar.com",
                     Nombre = item.Nombre,
                     Identificacion = item.Identificacion,
                     Cargo = item.Cargo,
                     Jefatura = item.Jefatura.Replace(";;", ""),
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    Habilitado = true
                 };
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 IdentityResult result = manager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);
@@ -134,6 +135,24 @@ namespace ConexionWeb.Perfiles
         protected void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Perfiles/NuevoUsuario.aspx");
+        }
+
+        protected void gvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EnableUser")
+            {
+                int index = Convert.ToInt32(e.CommandArgument.ToString());
+                string userId = gvUsuarios.DataKeys[index].Values[0].ToString();
+                var userMngr = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+                var user = userMngr.FindById(userId);
+                user.Habilitado = !user.Habilitado;
+                userMngr.Update(user);
+
+                this.CargarPerfiles();
+                string term = user.Habilitado ? "habilidato" : "deshabilitado";
+                lblConfirmacion.Text = "Se ha " + term + " correctamente el usuario " + user.Nombre + ".";
+            }
         }
     }
 }

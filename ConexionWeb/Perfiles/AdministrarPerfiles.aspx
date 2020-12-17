@@ -24,13 +24,14 @@
     <div style="text-align: right; margin-bottom: 20px;">
         <asp:Button runat="server" CssClass="btn btn-success right" ID="btnCrearUsuario" Text="Crear un usuario" OnClick="btnCrearUsuario_Click" />
     </div>
-    <asp:GridView ID="gvUsuarios" DataKeyNames="Id" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvUsuarios_RowDataBound">
+    <asp:GridView ID="gvUsuarios" DataKeyNames="Id" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvUsuarios_RowDataBound" OnRowCommand="gvUsuarios_RowCommand">
         <Columns>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
             <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
             <asp:BoundField DataField="UserName" HeaderText="Usuario" />
             <asp:BoundField DataField="Cargo" HeaderText="Cargo" />
             <asp:BoundField DataField="Jefatura" HeaderText="Jefatura" />
+            <asp:BoundField DataField="Habilitado" HeaderText="Habilitado" />
             <asp:TemplateField HeaderText="Roles">
                 <ItemTemplate>
                     <asp:ListBox ID="listRoles" runat="server"></asp:ListBox>
@@ -39,7 +40,8 @@
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ToolTip="Editar" ImageUrl="~/Images/edit.png" />
-                    <asp:ImageButton ID="statusButton" CssClass="gridButton" runat="server" ToolTip="Activar / Desactivar" ImageUrl="~/Images/approve.png" />
+                    <asp:ImageButton ID="statusButton" CssClass="gridButton" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" 
+                            CommandName="EnableUser" runat="server" ToolTip="Activar / Desactivar" ImageUrl="~/Images/approve.png" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

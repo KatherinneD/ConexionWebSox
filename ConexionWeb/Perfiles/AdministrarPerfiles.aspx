@@ -31,12 +31,13 @@
             <asp:BoundField DataField="UserName" HeaderText="Usuario" />
             <asp:BoundField DataField="Cargo" HeaderText="Cargo" />
             <asp:BoundField DataField="Jefatura" HeaderText="Jefatura" />
-            <asp:BoundField DataField="Habilitado" HeaderText="Habilitado" />
+            <asp:BoundField DataField="Area" HeaderText="Área" />
             <asp:TemplateField HeaderText="Roles">
                 <ItemTemplate>
                     <asp:ListBox ID="listRoles" runat="server"></asp:ListBox>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:BoundField DataField="Habilitado" HeaderText="Habilitado" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:ImageButton ID="editButton" CssClass="gridButton" runat="server" ToolTip="Editar" ImageUrl="~/Images/edit.png" />

@@ -31,7 +31,7 @@ namespace ConexionWeb.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-                var user = manager.FindByEmail(Email.Text);
+                var user = manager.FindByName(Email.Text);
                 if (user != null)
                 {
                     if (!user.Habilitado)

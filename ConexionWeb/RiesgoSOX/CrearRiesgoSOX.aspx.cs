@@ -192,5 +192,11 @@ namespace ConexionWeb.RiesgoSOX
         {
             Response.Redirect("/RiesgoSOX/ConsultarRiesgosSOX");
         }
+
+        protected void lstRiesgosCorporativos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string numero = lstRiesgosCorporativos.SelectedItem.Text;
+            spanCodigo.InnerText = "SOX-T-" + numero;
+        }
     }
 }

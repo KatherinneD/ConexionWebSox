@@ -108,14 +108,15 @@ namespace ConexionWeb.Perfiles
             foreach (var item in records)
             {
                 var user = new ApplicationUser() { 
-                    UserName = item.Usuario + "@movistar.com",
+                    UserName = item.Usuario,
                     Email = item.Usuario + "@movistar.com",
                     Nombre = item.Nombre,
                     Identificacion = item.Identificacion,
                     Cargo = item.Cargo,
                     Jefatura = item.Jefatura.Replace(";;", ""),
                     EmailConfirmed = true,
-                    Habilitado = true
+                    Habilitado = true,
+                    Area = item.Area.Replace(";;", "")
                 };
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 IdentityResult result = manager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);

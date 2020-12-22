@@ -11,11 +11,11 @@
         <br />
         <div class ="form-group">
             <div class="col-md-2"><span class="control-label">Código riesgo corporativo:</span></div>
-            <div class="col-md-10"><asp:DropDownList  CssClass="col-md-2 form-control" runat="server" ID="lstRiesgosCorporativos"></asp:DropDownList> </div>
+            <div class="col-md-10"><asp:DropDownList  CssClass="col-md-2 form-control" runat="server" ID="lstRiesgosCorporativos" AutoPostBack="true" OnSelectedIndexChanged="lstRiesgosCorporativos_SelectedIndexChanged"></asp:DropDownList> </div>
         </div>
         <div class ="form-group">
             <div class="col-md-2"><span class="control-label">Código tipo riesgo SOX:</span></div>
-            <div class="col-md-10">SOX<asp:TextBox runat="server" CssClass="form-control" ID="txtRiesgoSOX" Text="SOX-T-"></asp:TextBox> </div>
+            <div class="col-md-10"><span runat="server" ID="spanCodigo">SOX</span><asp:TextBox runat="server" CssClass="form-control" ID="txtRiesgoSOX"></asp:TextBox> </div>
         </div>
         <div class ="form-group">
             <div class="col-md-2"><span class="control-label">Descripción del riesgo SOX:</span></div>

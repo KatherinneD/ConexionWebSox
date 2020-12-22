@@ -82,6 +82,8 @@ namespace ConexionWeb.RiesgoSOX
             this.lstRiesgosCorporativos.Enabled = false;
             this.txtRiesgoSOX.Enabled = false;
             this.txtFechaCreacion.Enabled = false;
+            this.lstEstados.Enabled = false;
+            this.listAprobadoPor.Enabled = false;
             if (!Activo) 
             {
                 this.txtDescripcionSOX.Enabled = false;

@@ -27,6 +27,10 @@ namespace ConexionWeb.Bussiness
             try
             {
                 var engine = new FileHelperEngine<ActividadControlCSV>(Encoding.UTF8);
+                engine.BeforeReadRecord += (sender, args) =>
+                {
+                    args.RecordLine = args.RecordLine;
+                };
                 var path = GuardarArchivoLocal(nombreArchivo, bytes);
                 var records = engine.ReadFile(path);
                 var actividadControlBL = new ActividadControlBL();
@@ -39,10 +43,12 @@ namespace ConexionWeb.Bussiness
                     {
                         if (contador > 1)
                         {
-                            ActividadControl actividadControl = new ActividadControl();
-                            actividadControl.Codigo = record.Codigo;
-                            actividadControl.NombreActividad = record.NombreActividad;
-                            actividadControl.Estado = record.Estado;
+                            ActividadControl actividadControl = new ActividadControl
+                            {
+                                Codigo = record.Codigo.Length > 100 ? record.Codigo.Substring(0, 100) : record.Codigo,
+                                NombreActividad = record.NombreActividad,
+                                Estado = record.Estado
+                            };
                             actividadControlBL.CrearActualizarActividadControl(actividadControl);
                         }
                     }
@@ -111,13 +117,13 @@ namespace ConexionWeb.Bussiness
                             //Si la aplicacion no existe crea una nueva
                             if (aplicacion == null)
                                 aplicacion = new Aplicaciones();
-                            var servidoresBL = new ServidoresBL();                           
+                            var servidoresBL = new ServidoresBL();
                             aplicacion.Codigo = record.Codigo;
                             aplicacion.NombreAplicacion = record.NombreAplicacion;
                             aplicacion.Estado = "Activo";
                             if (string.IsNullOrEmpty(aplicacion.Servidores))
                             {
-                                aplicacion.Servidores = record.Servidor;                               
+                                aplicacion.Servidores = record.Servidor;
                             }
                             else
                             {
@@ -162,9 +168,11 @@ namespace ConexionWeb.Bussiness
                     {
                         if (contador > 1)
                         {
-                            PuntoControl nuevoPuntoControl = new PuntoControl();
-                            nuevoPuntoControl.Codigo = record.Codigo;
-                            nuevoPuntoControl.PuntoDeControl = record.PuntoControl;
+                            PuntoControl nuevoPuntoControl = new PuntoControl
+                            {
+                                Codigo = record.Codigo.Length > 100 ? record.Codigo.Substring(0, 100) : record.Codigo,
+                                PuntoDeControl = record.PuntoControl
+                            };
                             puntoControlBL.CrearActualizarPuntoControl(nuevoPuntoControl);
                         }
                     }
@@ -289,7 +297,7 @@ namespace ConexionWeb.Bussiness
                 foreach (var record in records)
                 {
                     contador++;
-                    
+
                     try
                     {
                         if (contador > 1)
@@ -305,7 +313,7 @@ namespace ConexionWeb.Bussiness
                     catch { continue; }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex.Message;
             }

@@ -9,8 +9,12 @@ namespace ConexionWeb.Bussiness.CSVEntities
     public class ControlCSV
     {
         public string Codigo { get; set; }
+
         public string NombreControl { get; set; }
+
         public string InicialesControl { get; set; }
+        
+        [FieldOptional]
         public string Estado { get; set; }
     }
 }

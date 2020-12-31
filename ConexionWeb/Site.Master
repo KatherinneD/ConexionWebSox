@@ -233,9 +233,9 @@
                             <a href="/Aplicaciones/ConsultarAplicaciones" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Consultar aplicaciones</span>
                             </a>
-                            <a href="/Aplicaciones/CrearAplicacion" class="list-group-item list-group-item-action bg-dark text-white">
+                            <!--<a href="/Aplicaciones/CrearAplicacion" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Crear aplicación</span>
-                            </a>
+                            </a>-->
                         </div>
                         <%} %>
                         <!-- Submenu content -->

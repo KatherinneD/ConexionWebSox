@@ -98,7 +98,7 @@ namespace ConexionWeb.Aplicaciones
                 EstadoAuditoria = aplicacion.EstadoAuditoria;
                 this.lstEstados.SelectedValue = aplicacion.Estado;
                 this.btnActualizar.Text = "Actualizar";
-                this.checkHerramienta.Checked = !string.IsNullOrEmpty(aplicacion.HerramientaAlmacenamiento) ? true : false;
+                this.checkHerramienta.Checked = Convert.ToBoolean(!string.IsNullOrEmpty(aplicacion.HerramientaAlmacenamiento) ? aplicacion.HerramientaAlmacenamiento : "False");
                 this.boolClasificarSOX.Checked = aplicacion.ClasificarSOX;
                 this.txtCodigo.Enabled = false;
                 this.txtNombre.Enabled = false;
@@ -144,17 +144,18 @@ namespace ConexionWeb.Aplicaciones
             //}
             if (this.lstEstados.SelectedValue == "Inactivo")
                 inactivadoPor = User.Identity.Name;
-            var respuesta = servicio.CrearActualizarAplicacion(new ConexionSOXService.Aplicaciones()
-            {
-                Celula = this.listCelula.SelectedValue,
-                ClasificarSOX = this.boolClasificarSOX.Checked,
-                Codigo = this.txtCodigo.Text,
-                Estado = this.lstEstados.SelectedValue,
-                InactivadoPor = inactivadoPor,
-                HerramientaAlmacenamiento = this.checkHerramienta.Checked.ToString(),
-                NombreAplicacion = this.txtNombre.Text,
-                //Servidores = String.Join(",", servidoresSeleccionados)
-            });
+
+            var aplicacion = servicio.ObtenerAplicacion(this.txtCodigo.Text);
+            aplicacion = aplicacion ?? new ConexionSOXService.Aplicaciones();
+            aplicacion.Celula = this.listCelula.SelectedValue;
+            aplicacion.ClasificarSOX = this.boolClasificarSOX.Checked;
+            aplicacion.Codigo = this.txtCodigo.Text;
+            aplicacion.Estado = this.lstEstados.SelectedValue;
+            aplicacion.InactivadoPor = inactivadoPor;
+            aplicacion.HerramientaAlmacenamiento = this.checkHerramienta.Checked.ToString();
+            aplicacion.NombreAplicacion = this.txtNombre.Text;
+
+            var respuesta = servicio.CrearActualizarAplicacion(aplicacion);
             Response.Write("<script>alert('" + respuesta + "');location.href='/Aplicaciones/ConsultarAplicaciones'</script>");
         }
 

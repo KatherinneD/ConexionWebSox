@@ -131,14 +131,18 @@ namespace ConexionWeb.Bussiness
                                     aplicacion.Servidores = aplicacion.Servidores + "," + record.Servidor;
                             }
                             aplicacionesBL.CrearActualizarAplicacion(aplicacion);
-                            Servidores servidor = new Servidores()
+
+                            foreach (var item in record.Servidor.Split(','))
                             {
-                                Nombre = record.Servidor,
-                                Ip = record.IPServidor,
-                                Tipo = record.TipoServidor,
-                                Estado = "Activo"
-                            };
-                            servidoresBL.CrearActualizarServidor(servidor);
+                                Servidores servidor = new Servidores()
+                                {
+                                    Nombre = item.Trim(),
+                                    Ip = record.IPServidor,
+                                    Tipo = record.TipoServidor,
+                                    Estado = "Activo"
+                                };
+                                servidoresBL.CrearActualizarServidor(servidor);
+                            }
                         }
                     }
                     catch { continue; }

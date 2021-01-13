@@ -15,6 +15,8 @@ namespace ConexionWeb.Perfiles
         public string Estado { get; set; }
         public string Cargo { get; set; }
         public string Jefatura { get; set; }
+        
+        [FieldOptional]
         public string Area { get; set; }
     }
 }

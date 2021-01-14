@@ -35,6 +35,9 @@ namespace ConexionWeb.RiesgoSOX
                 {
                     CargarInformacionRiesgo(Request["CodigoSOX"]);
                 }
+
+                string numero = lstRiesgosCorporativos.SelectedItem.Text;
+                spanCodigo.InnerText = "SOX-T-" + numero;
             }
         }
 

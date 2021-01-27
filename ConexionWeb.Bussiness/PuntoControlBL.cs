@@ -18,7 +18,12 @@ namespace ConexionWeb.Bussiness
             return query;
         }
 
-        public PuntoControl ObtenerPuntoControl(string codigo)
+        public int ObtenerNuevoCodigoPuntoControl()
+        {
+            return ctx.PuntosControl.Max(m => m.Codigo) + 1;
+        }
+
+        public PuntoControl ObtenerPuntoControl(int codigo)
         {
             return ctx.PuntosControl.SingleOrDefault(c => c.Codigo == codigo);
         }

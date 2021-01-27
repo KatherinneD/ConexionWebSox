@@ -8,8 +8,8 @@ namespace ConexionWeb.Models
 
     public class ObjetivoControl
     {
-        [Required, StringLength(100), Display(Name = "Codigo"), Key]
-        public string Codigo { get; set; }
+        [Required, Display(Name = "Codigo"), Key]
+        public int Codigo { get; set; }
 
         public string ObjetivoDeControl { get; set; }
         

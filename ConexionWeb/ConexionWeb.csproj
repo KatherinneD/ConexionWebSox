@@ -177,10 +177,10 @@
     <Content Include="ActividadControl\CrearActividadControl.aspx" />
     <Content Include="Aplicaciones\ConsultarAplicaciones.aspx" />
     <Content Include="Aplicaciones\CrearAplicacion.aspx" />
-    <None Include="Connected Services\ConexionSOXService\ConexionSOXService1.disco" />
     <Content Include="CamposMatriz\ConsultarCampos.aspx" />
     <Content Include="CamposMatriz\CrearCampo.aspx" />
     <Content Include="CamposMatriz\CrearOpcion.aspx" />
+    <None Include="Connected Services\ConexionSOXService\ConexionSOXService.disco" />
     <Content Include="Connected Services\ConexionSOXService\ConexionWeb.ConexionSOXService.RiesgoCorporativo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -214,16 +214,6 @@
     <Content Include="Connected Services\ConexionSOXService\ConexionWeb.ConexionSOXService.Roles.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ConexionSOXService\ConexionSOXService1.wsdl" />
-    <None Include="Connected Services\ConexionSOXService\ConexionSOXService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ConexionSOXService\ConexionSOXService31.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ConexionSOXService\ConexionSOXService32.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\ConexionSOXService\ConexionWeb.ConexionSOXService.CampoMatriz.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -236,6 +226,16 @@
     <Content Include="Connected Services\ConexionSOXService\ConexionWeb.ConexionSOXService.Servidores.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ConexionSOXService\ConexionSOXService.wsdl" />
+    <None Include="Connected Services\ConexionSOXService\ConexionSOXService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ConexionSOXService\ConexionSOXService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ConexionSOXService\ConexionSOXService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ConexionSOXService\configuration91.svcinfo" />
     <None Include="Connected Services\ConexionSOXService\configuration.svcinfo" />
     <None Include="Connected Services\ConexionSOXService\Reference.svcmap">

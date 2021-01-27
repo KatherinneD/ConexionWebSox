@@ -5,11 +5,11 @@ using FileHelpers;
 
 namespace ConexionWeb.Bussiness.CSVEntities
 {
-    [DelimitedRecord("|")]
+    [DelimitedRecord("|"), IgnoreFirst(1)]
     public class PuntoControlCSV
     {
         [FieldQuoted('"', QuoteMode.OptionalForBoth, MultilineMode.AllowForBoth)]
-        public string Codigo { get; set; }
+        public int Codigo { get; set; }
 
         [FieldOptional]
         [FieldQuoted('"', QuoteMode.OptionalForBoth, MultilineMode.AllowForBoth)]

@@ -183,7 +183,7 @@
   <xs:complexType name="PuntoControl">
     <xs:sequence>
       <xs:element minOccurs="0" name="Autor" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="InactivadoPor" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PuntoDeControl" nillable="true" type="xs:string" />
@@ -199,7 +199,7 @@
   <xs:complexType name="ObjetivoControl">
     <xs:sequence>
       <xs:element minOccurs="0" name="Autor" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="InactivadoPor" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjetivoDeControl" nillable="true" type="xs:string" />
@@ -299,7 +299,6 @@
   <xs:element name="ArrayOfServidores" nillable="true" type="tns:ArrayOfServidores" />
   <xs:complexType name="Servidores">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Ip" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />

@@ -184,7 +184,7 @@ namespace ConexionWeb
                 var roleresult = roleManager.Create(new IdentityRole(ApplicationRole.CONTROL));
             }
 
-            ApplicationUser user = new ApplicationUser() { UserName = "administrador@sistema.com", Email = "administrador@sistema.com", EmailConfirmed = true };
+            ApplicationUser user = new ApplicationUser() { UserName = "administrador@sistema.com", Email = "administrador@sistema.com", EmailConfirmed = true, Habilitado = true };
             if (userManager.FindByEmail(user.Email) == null)
             {
                 IdentityResult userResult = userManager.Create(user, ConfigurationManager.AppSettings["PasswordTemporal"]);

@@ -1548,47 +1548,6 @@ namespace ConexionWeb.ConexionSOXService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-
-        public static implicit operator MatrizControles(MatrizControlesPorAprobar v)
-        {
-            MatrizControles matriz = new MatrizControles();
-            matriz.Autor = v.Autor;
-            matriz.CalidadEvidenciaCodigoAplicacion = v.CalidadEvidenciaCodigoAplicacion;
-            matriz.CalidadEvidenciaCodigoImportanciaReporte = v.CalidadEvidenciaCodigoImportanciaReporte;
-            matriz.CalidadEvidenciaCodigoTipoReporte = v.CalidadEvidenciaCodigoTipoReporte;
-            matriz.CalidadEvidenciaDescripcion = v.CalidadEvidenciaDescripcion;
-            matriz.CalidadEvidenciaDescripcionIntegridad = v.CalidadEvidenciaDescripcionIntegridad;
-            matriz.CalidadEvidenciaDescripcionRevisionesGerencia = v.CalidadEvidenciaDescripcionRevisionesGerencia;
-            matriz.CalidadEvidenciaDescripcionTransaccion = v.CalidadEvidenciaDescripcionTransaccion;
-            matriz.Codigo = v.Codigo;
-            matriz.CodigoActividadControl = v.CodigoActividadControl;
-            matriz.CodigoAplicacion = v.CodigoAplicacion;
-            matriz.CodigoDocumento = v.CodigoDocumento;
-            matriz.CodigoFrecuenciaControl = v.CodigoFrecuenciaControl;
-            matriz.CodigoNaturalezaControl = v.CodigoNaturalezaControl;
-            matriz.CodigoPuntoControl = v.CodigoPuntoControl;
-            matriz.CodigoSOX = v.CodigoSOX;
-            matriz.CodigoTiempoAplicacion = v.CodigoTiempoAplicacion;
-            matriz.CodigoTipoControl = v.CodigoTipoControl;
-            matriz.ControlCompensatorioCodigoAplicacion = v.ControlCompensatorioCodigoAplicacion;
-            matriz.ControlCompensatorioDescripcion = v.ControlCompensatorioDescripcion;
-            matriz.ControlCompensatorioDescripcionEvidencia = v.ControlCompensatorioDescripcionEvidencia;
-            matriz.ControlCompensatorioFechaCreacion = v.ControlCompensatorioFechaCreacion;
-            matriz.ControlCompensatorioFechaInicio = v.ControlCompensatorioFechaInicio;
-            matriz.ControlCompensatorioNotificarJefeArea = v.ControlCompensatorioNotificarJefeArea;
-            matriz.CriterioControl = v.CriterioControl;
-            matriz.DeficienciaAnoAnterior = v.DeficienciaAnoAnterior;
-            matriz.Descripcion = v.Descripcion;
-            matriz.DescripcionActividadesTercero = v.DescripcionActividadesTercero;
-            matriz.Estado = v.Estado;
-            matriz.EvidenciaCodigoHerramientaAlmacenamiento = v.EvidenciaCodigoHerramientaAlmacenamiento;
-            matriz.EvidenciaCodigoTiempoPermanencia = v.EvidenciaCodigoTiempoPermanencia;
-            matriz.EvidenciaDescripcionRestricciones = v.EvidenciaDescripcionRestricciones;
-            matriz.EvidenciaDescripcionRevision = v.EvidenciaDescripcionRevision;
-            matriz.EvidenciaRutaArchivos = v.EvidenciaRutaArchivos;
-            matriz.ResponsableControl = v.ResponsableControl;
-            return matriz;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1918,7 +1877,7 @@ namespace ConexionWeb.ConexionSOXService {
         private string AutorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
+        private int CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
@@ -1953,12 +1912,12 @@ namespace ConexionWeb.ConexionSOXService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
+        public int Codigo {
             get {
                 return this.CodigoField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                if ((this.CodigoField.Equals(value) != true)) {
                     this.CodigoField = value;
                     this.RaisePropertyChanged("Codigo");
                 }
@@ -2027,7 +1986,7 @@ namespace ConexionWeb.ConexionSOXService {
         private string AutorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
+        private int CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
@@ -2062,12 +2021,12 @@ namespace ConexionWeb.ConexionSOXService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
+        public int Codigo {
             get {
                 return this.CodigoField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                if ((this.CodigoField.Equals(value) != true)) {
                     this.CodigoField = value;
                     this.RaisePropertyChanged("Codigo");
                 }
@@ -2758,9 +2717,6 @@ namespace ConexionWeb.ConexionSOXService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2779,19 +2735,6 @@ namespace ConexionWeb.ConexionSOXService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
             }
         }
         
@@ -3007,11 +2950,17 @@ namespace ConexionWeb.ConexionSOXService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerPuntosControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerPuntosControlResponse")]
         System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.PuntoControl[]> ObtenerPuntosControlAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerPuntoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerPuntoControlResponse")]
-        ConexionWeb.ConexionSOXService.PuntoControl ObtenerPuntoControl(string codigo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoPuntoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoPuntoControlResponse")]
+        int ObtenerConsecutivoPuntoControl();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoPuntoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoPuntoControlResponse")]
+        System.Threading.Tasks.Task<int> ObtenerConsecutivoPuntoControlAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerPuntoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerPuntoControlResponse")]
-        System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.PuntoControl> ObtenerPuntoControlAsync(string codigo);
+        ConexionWeb.ConexionSOXService.PuntoControl ObtenerPuntoControl(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerPuntoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerPuntoControlResponse")]
+        System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.PuntoControl> ObtenerPuntoControlAsync(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/CrearActualizarPuntosControl", ReplyAction="http://tempuri.org/IConexionSOXService/CrearActualizarPuntosControlResponse")]
         string CrearActualizarPuntosControl(ConexionWeb.ConexionSOXService.PuntoControl puntoControl);
@@ -3031,11 +2980,17 @@ namespace ConexionWeb.ConexionSOXService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivosControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivosControlResponse")]
         System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.ObjetivoControl[]> ObtenerObjetivosControlAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControlResponse")]
-        ConexionWeb.ConexionSOXService.ObjetivoControl ObtenerObjetivoControl(string codigo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoObjetivoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoObjetivoControlResponse")]
+        int ObtenerConsecutivoObjetivoControl();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoObjetivoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerConsecutivoObjetivoControlResponse")]
+        System.Threading.Tasks.Task<int> ObtenerConsecutivoObjetivoControlAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControlResponse")]
-        System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.ObjetivoControl> ObtenerObjetivoControlAsync(string codigo);
+        ConexionWeb.ConexionSOXService.ObjetivoControl ObtenerObjetivoControl(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControl", ReplyAction="http://tempuri.org/IConexionSOXService/ObtenerObjetivoControlResponse")]
+        System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.ObjetivoControl> ObtenerObjetivoControlAsync(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConexionSOXService/CrearActualizarObjetivosControl", ReplyAction="http://tempuri.org/IConexionSOXService/CrearActualizarObjetivosControlResponse")]
         string CrearActualizarObjetivosControl(ConexionWeb.ConexionSOXService.ObjetivoControl objetivoControl);
@@ -3383,11 +3338,19 @@ namespace ConexionWeb.ConexionSOXService {
             return base.Channel.ObtenerPuntosControlAsync();
         }
         
-        public ConexionWeb.ConexionSOXService.PuntoControl ObtenerPuntoControl(string codigo) {
+        public int ObtenerConsecutivoPuntoControl() {
+            return base.Channel.ObtenerConsecutivoPuntoControl();
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerConsecutivoPuntoControlAsync() {
+            return base.Channel.ObtenerConsecutivoPuntoControlAsync();
+        }
+        
+        public ConexionWeb.ConexionSOXService.PuntoControl ObtenerPuntoControl(int codigo) {
             return base.Channel.ObtenerPuntoControl(codigo);
         }
         
-        public System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.PuntoControl> ObtenerPuntoControlAsync(string codigo) {
+        public System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.PuntoControl> ObtenerPuntoControlAsync(int codigo) {
             return base.Channel.ObtenerPuntoControlAsync(codigo);
         }
         
@@ -3415,11 +3378,19 @@ namespace ConexionWeb.ConexionSOXService {
             return base.Channel.ObtenerObjetivosControlAsync();
         }
         
-        public ConexionWeb.ConexionSOXService.ObjetivoControl ObtenerObjetivoControl(string codigo) {
+        public int ObtenerConsecutivoObjetivoControl() {
+            return base.Channel.ObtenerConsecutivoObjetivoControl();
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerConsecutivoObjetivoControlAsync() {
+            return base.Channel.ObtenerConsecutivoObjetivoControlAsync();
+        }
+        
+        public ConexionWeb.ConexionSOXService.ObjetivoControl ObtenerObjetivoControl(int codigo) {
             return base.Channel.ObtenerObjetivoControl(codigo);
         }
         
-        public System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.ObjetivoControl> ObtenerObjetivoControlAsync(string codigo) {
+        public System.Threading.Tasks.Task<ConexionWeb.ConexionSOXService.ObjetivoControl> ObtenerObjetivoControlAsync(int codigo) {
             return base.Channel.ObtenerObjetivoControlAsync(codigo);
         }
         

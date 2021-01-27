@@ -153,10 +153,16 @@ namespace ConexionWeb.Service
             return matrizBL.ObtenerMatrizControlesPorAprobar(codigo);
         }
 
-        public ObjetivoControl ObtenerObjetivoControl(string codigo)
+        public ObjetivoControl ObtenerObjetivoControl(int codigo)
         {
             var objetivoControlBL = new ObjetivoControlBL();
             return objetivoControlBL.ObtenerObjetivoControl(codigo);
+        }
+
+        public int ObtenerConsecutivoObjetivoControl()
+        {
+            var objetivoControlBL = new ObjetivoControlBL();
+            return objetivoControlBL.ObtenerNuevoCodigoObjetivoControl();
         }
 
         public IList<ObjetivoControl> ObtenerObjetivosControl()
@@ -177,7 +183,13 @@ namespace ConexionWeb.Service
             return opcionBL.ObtenerOpciones(codigo);
         }
 
-        public PuntoControl ObtenerPuntoControl(string codigo)
+        public int ObtenerConsecutivoPuntoControl()
+        {
+            var puntoControlBL = new PuntoControlBL();
+            return puntoControlBL.ObtenerNuevoCodigoPuntoControl();
+        }
+
+        public PuntoControl ObtenerPuntoControl(int codigo)
         {
             var puntoControlBL = new PuntoControlBL();
             return puntoControlBL.ObtenerPuntoControl(codigo);

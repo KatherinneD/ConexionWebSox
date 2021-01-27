@@ -19,12 +19,12 @@ namespace ConexionWeb.MatrizControles
 
         private static TipoMatriz _TipoDatosAMostrar { get; set; }
         public bool SoloLectura { get; set; }
-        
+
         private static ConexionSOXServiceClient Servicio = new ConexionSOXService.ConexionSOXServiceClient();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void CargarDatos()
@@ -74,58 +74,113 @@ namespace ConexionWeb.MatrizControles
                         break;
                 }
             }
-        
+
         }
 
         private void CargarDatosMatriz(string codigo, bool modificar)
         {
-            var matriz = modificar ? Servicio.ObtenerMatrizControl(codigo) : Servicio.ObtenerMatrizControlPorAprobar(codigo);
-            ConexionSOXService.MatrizControles matrizAnterior = null;
-            ConexionSOXService.MatrizControlesPorAprobar matrizNueva = null;
-            if (matriz != null)
+            if (modificar)
             {
-                this.listCalidadEvidenciaCodigoAplicacion.SelectedValue = matriz.CalidadEvidenciaCodigoAplicacion;
-                this.listCalidadEvidenciaCodigoImportanciaReporte.SelectedValue = matriz.CalidadEvidenciaCodigoImportanciaReporte;
-                this.listCalidadEvidenciaCodigoTipoReporte.SelectedValue = matriz.CalidadEvidenciaCodigoTipoReporte;
-                this.txtCalidadEvidenciaDescripcion.Text = matriz.CalidadEvidenciaDescripcion;
-                this.txtCalidadEvidenciaDescripcionIntegridad.Text = matriz.CalidadEvidenciaDescripcionIntegridad;
-                this.txtCalidadEvidenciaDescripcionRevisionesGerencia.Text = matriz.CalidadEvidenciaDescripcionRevisionesGerencia;
-                this.txtCalidadEvidenciaDescripcionTransaccion.Text = matriz.CalidadEvidenciaDescripcionTransaccion;
-                this.listCodigoActividadControl.SelectedValue = matriz.CodigoActividadControl;
-                CheckBoxListSeleccionados(matriz.CodigoAplicacion, this.listCodigoAplicacion);
-                CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
-                this.listFrecuenciaControl.SelectedValue = matriz.CodigoFrecuenciaControl;
-                this.listNaturalezaControl.SelectedValue = matriz.CodigoNaturalezaControl;
-                CheckBoxListSeleccionados(matriz.CodigoPuntoControl, this.listCodigoPuntoDeControl);
-                this.listRiesgos.SelectedValue = matriz.CodigoSOX;
-                this.listCodigoTiempoAplicacion.SelectedValue = matriz.CodigoTiempoAplicacion;
-                this.listTipoControl.SelectedValue = matriz.CodigoTipoControl;
-                this.listControlCompensatorioCodigoAplicacion.SelectedValue = matriz.ControlCompensatorioCodigoAplicacion;
-                this.txtControlCompensatorioDescripcion.Text = matriz.ControlCompensatorioDescripcion;
-                this.txtControlCompensatorioDescripcionEvidencia.Text = matriz.ControlCompensatorioDescripcionEvidencia;
-                this.txtControlCompensatorioFechaInicio.Text = matriz.ControlCompensatorioFechaInicio.Value.Year + matriz.ControlCompensatorioFechaInicio.Value.ToString("-MM-dd");
-                this.listCriterios.SelectedValue = matriz.CriterioControl;
-                this.txtDeficienciaAnoAnterior.Checked = matriz.DeficienciaAnoAnterior;
-                this.txtDescripcionControl.Text = matriz.Descripcion;
-                this.listEstados.SelectedValue = matriz.Estado;
-                this.listEvidenciaCodigoHerramientaAlmacenamiento.SelectedValue = matriz.EvidenciaCodigoHerramientaAlmacenamiento;
-                this.listEvidenciaCodigoTiempoPermanencia.SelectedValue = matriz.EvidenciaCodigoTiempoPermanencia;
-                this.txtEvidenciaDescripcionRestricciones.Text = matriz.EvidenciaDescripcionRestricciones;
-                this.txtEvidenciaDescripcionRevision.Text = matriz.EvidenciaDescripcionRevision;
-                this.txtEvidenciasArchivos.Text = matriz.EvidenciaRutaArchivos;
-                this.listEvidencias.Visible = false;
-                this.txtDescripcionActividadesTercero.Text = matriz.DescripcionActividadesTercero;
-                CheckBoxListSeleccionados(matriz.ResponsableControl, this.listResponsableControl);
-                //Inactivación de campos
-                this.listCodigoPuntoDeControl.Enabled = false;
-                this.listCodigoActividadControl.Enabled = false;
-                this.btnActualizar.Text = "Actualizar";
-
-                if (this.TipoDatosAMostrar == TipoMatriz.Aprobacion)
+                var matriz = Servicio.ObtenerMatrizControl(codigo);
+                ConexionSOXService.MatrizControles matrizAnterior = null;
+                ConexionSOXService.MatrizControlesPorAprobar matrizNueva = null;
+                if (matriz != null)
                 {
-                    matrizNueva = Servicio.ObtenerMatrizControlPorAprobar(codigo);
-                    matrizAnterior = Servicio.ObtenerMatrizControl(codigo);
-                    MarcarDatosModificados(matrizNueva, matrizAnterior);
+                    this.listCalidadEvidenciaCodigoAplicacion.SelectedValue = matriz.CalidadEvidenciaCodigoAplicacion;
+                    this.listCalidadEvidenciaCodigoImportanciaReporte.SelectedValue = matriz.CalidadEvidenciaCodigoImportanciaReporte;
+                    this.listCalidadEvidenciaCodigoTipoReporte.SelectedValue = matriz.CalidadEvidenciaCodigoTipoReporte;
+                    this.txtCalidadEvidenciaDescripcion.Text = matriz.CalidadEvidenciaDescripcion;
+                    this.txtCalidadEvidenciaDescripcionIntegridad.Text = matriz.CalidadEvidenciaDescripcionIntegridad;
+                    this.txtCalidadEvidenciaDescripcionRevisionesGerencia.Text = matriz.CalidadEvidenciaDescripcionRevisionesGerencia;
+                    this.txtCalidadEvidenciaDescripcionTransaccion.Text = matriz.CalidadEvidenciaDescripcionTransaccion;
+                    this.listCodigoActividadControl.SelectedValue = matriz.CodigoActividadControl;
+                    CheckBoxListSeleccionados(matriz.CodigoAplicacion, this.listCodigoAplicacion);
+                    CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
+                    this.listFrecuenciaControl.SelectedValue = matriz.CodigoFrecuenciaControl;
+                    this.listNaturalezaControl.SelectedValue = matriz.CodigoNaturalezaControl;
+                    CheckBoxListSeleccionados(matriz.CodigoPuntoControl, this.listCodigoPuntoDeControl);
+                    this.listRiesgos.SelectedValue = matriz.CodigoSOX;
+                    this.listCodigoTiempoAplicacion.SelectedValue = matriz.CodigoTiempoAplicacion;
+                    this.listTipoControl.SelectedValue = matriz.CodigoTipoControl;
+                    this.listControlCompensatorioCodigoAplicacion.SelectedValue = matriz.ControlCompensatorioCodigoAplicacion;
+                    this.txtControlCompensatorioDescripcion.Text = matriz.ControlCompensatorioDescripcion;
+                    this.txtControlCompensatorioDescripcionEvidencia.Text = matriz.ControlCompensatorioDescripcionEvidencia;
+                    this.txtControlCompensatorioFechaInicio.Text = matriz.ControlCompensatorioFechaInicio.Value.Year + matriz.ControlCompensatorioFechaInicio.Value.ToString("-MM-dd");
+                    this.listCriterios.SelectedValue = matriz.CriterioControl;
+                    this.txtDeficienciaAnoAnterior.Checked = matriz.DeficienciaAnoAnterior;
+                    this.txtDescripcionControl.Text = matriz.Descripcion;
+                    this.listEstados.SelectedValue = matriz.Estado;
+                    this.listEvidenciaCodigoHerramientaAlmacenamiento.SelectedValue = matriz.EvidenciaCodigoHerramientaAlmacenamiento;
+                    this.listEvidenciaCodigoTiempoPermanencia.SelectedValue = matriz.EvidenciaCodigoTiempoPermanencia;
+                    this.txtEvidenciaDescripcionRestricciones.Text = matriz.EvidenciaDescripcionRestricciones;
+                    this.txtEvidenciaDescripcionRevision.Text = matriz.EvidenciaDescripcionRevision;
+                    this.txtEvidenciasArchivos.Text = matriz.EvidenciaRutaArchivos;
+                    this.listEvidencias.Visible = false;
+                    this.txtDescripcionActividadesTercero.Text = matriz.DescripcionActividadesTercero;
+                    CheckBoxListSeleccionados(matriz.ResponsableControl, this.listResponsableControl);
+                    //Inactivación de campos
+                    this.listCodigoPuntoDeControl.Enabled = false;
+                    this.listCodigoActividadControl.Enabled = false;
+                    this.btnActualizar.Text = "Actualizar";
+
+                    if (this.TipoDatosAMostrar == TipoMatriz.Aprobacion)
+                    {
+                        matrizNueva = Servicio.ObtenerMatrizControlPorAprobar(codigo);
+                        matrizAnterior = Servicio.ObtenerMatrizControl(codigo);
+                        MarcarDatosModificados(matrizNueva, matrizAnterior);
+                    }
+                }
+            }
+            else
+            {
+                var matriz = Servicio.ObtenerMatrizControlPorAprobar(codigo);
+                ConexionSOXService.MatrizControles matrizAnterior = null;
+                ConexionSOXService.MatrizControlesPorAprobar matrizNueva = null;
+                if (matriz != null)
+                {
+                    this.listCalidadEvidenciaCodigoAplicacion.SelectedValue = matriz.CalidadEvidenciaCodigoAplicacion;
+                    this.listCalidadEvidenciaCodigoImportanciaReporte.SelectedValue = matriz.CalidadEvidenciaCodigoImportanciaReporte;
+                    this.listCalidadEvidenciaCodigoTipoReporte.SelectedValue = matriz.CalidadEvidenciaCodigoTipoReporte;
+                    this.txtCalidadEvidenciaDescripcion.Text = matriz.CalidadEvidenciaDescripcion;
+                    this.txtCalidadEvidenciaDescripcionIntegridad.Text = matriz.CalidadEvidenciaDescripcionIntegridad;
+                    this.txtCalidadEvidenciaDescripcionRevisionesGerencia.Text = matriz.CalidadEvidenciaDescripcionRevisionesGerencia;
+                    this.txtCalidadEvidenciaDescripcionTransaccion.Text = matriz.CalidadEvidenciaDescripcionTransaccion;
+                    this.listCodigoActividadControl.SelectedValue = matriz.CodigoActividadControl;
+                    CheckBoxListSeleccionados(matriz.CodigoAplicacion, this.listCodigoAplicacion);
+                    CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
+                    this.listFrecuenciaControl.SelectedValue = matriz.CodigoFrecuenciaControl;
+                    this.listNaturalezaControl.SelectedValue = matriz.CodigoNaturalezaControl;
+                    CheckBoxListSeleccionados(matriz.CodigoPuntoControl, this.listCodigoPuntoDeControl);
+                    this.listRiesgos.SelectedValue = matriz.CodigoSOX;
+                    this.listCodigoTiempoAplicacion.SelectedValue = matriz.CodigoTiempoAplicacion;
+                    this.listTipoControl.SelectedValue = matriz.CodigoTipoControl;
+                    this.listControlCompensatorioCodigoAplicacion.SelectedValue = matriz.ControlCompensatorioCodigoAplicacion;
+                    this.txtControlCompensatorioDescripcion.Text = matriz.ControlCompensatorioDescripcion;
+                    this.txtControlCompensatorioDescripcionEvidencia.Text = matriz.ControlCompensatorioDescripcionEvidencia;
+                    this.txtControlCompensatorioFechaInicio.Text = matriz.ControlCompensatorioFechaInicio.Value.Year + matriz.ControlCompensatorioFechaInicio.Value.ToString("-MM-dd");
+                    this.listCriterios.SelectedValue = matriz.CriterioControl;
+                    this.txtDeficienciaAnoAnterior.Checked = matriz.DeficienciaAnoAnterior;
+                    this.txtDescripcionControl.Text = matriz.Descripcion;
+                    this.listEstados.SelectedValue = matriz.Estado;
+                    this.listEvidenciaCodigoHerramientaAlmacenamiento.SelectedValue = matriz.EvidenciaCodigoHerramientaAlmacenamiento;
+                    this.listEvidenciaCodigoTiempoPermanencia.SelectedValue = matriz.EvidenciaCodigoTiempoPermanencia;
+                    this.txtEvidenciaDescripcionRestricciones.Text = matriz.EvidenciaDescripcionRestricciones;
+                    this.txtEvidenciaDescripcionRevision.Text = matriz.EvidenciaDescripcionRevision;
+                    this.txtEvidenciasArchivos.Text = matriz.EvidenciaRutaArchivos;
+                    this.listEvidencias.Visible = false;
+                    this.txtDescripcionActividadesTercero.Text = matriz.DescripcionActividadesTercero;
+                    CheckBoxListSeleccionados(matriz.ResponsableControl, this.listResponsableControl);
+                    //Inactivación de campos
+                    this.listCodigoPuntoDeControl.Enabled = false;
+                    this.listCodigoActividadControl.Enabled = false;
+                    this.btnActualizar.Text = "Actualizar";
+
+                    if (this.TipoDatosAMostrar == TipoMatriz.Aprobacion)
+                    {
+                        matrizNueva = Servicio.ObtenerMatrizControlPorAprobar(codigo);
+                        matrizAnterior = Servicio.ObtenerMatrizControl(codigo);
+                        MarcarDatosModificados(matrizNueva, matrizAnterior);
+                    }
                 }
             }
         }
@@ -135,30 +190,30 @@ namespace ConexionWeb.MatrizControles
             Color colorResaltado = Color.LightGreen;
             if (matriz.CalidadEvidenciaCodigoAplicacion != matrizAnterior.CalidadEvidenciaCodigoAplicacion)
                 this.listCalidadEvidenciaCodigoAplicacion.BackColor = colorResaltado;
-            if(matriz.CalidadEvidenciaCodigoImportanciaReporte != matrizAnterior.CalidadEvidenciaCodigoImportanciaReporte)
+            if (matriz.CalidadEvidenciaCodigoImportanciaReporte != matrizAnterior.CalidadEvidenciaCodigoImportanciaReporte)
                 this.listCalidadEvidenciaCodigoImportanciaReporte.BackColor = colorResaltado;
-            
+
             if (matriz.CalidadEvidenciaCodigoTipoReporte != matrizAnterior.CalidadEvidenciaCodigoTipoReporte)
                 this.listCalidadEvidenciaCodigoTipoReporte.BackColor = colorResaltado;
-            
+
             if (matriz.CalidadEvidenciaDescripcion != matrizAnterior.CalidadEvidenciaDescripcion)
                 this.txtCalidadEvidenciaDescripcion.BackColor = colorResaltado;
-            
+
             if (matriz.CalidadEvidenciaDescripcionIntegridad != matrizAnterior.CalidadEvidenciaDescripcionIntegridad)
                 this.txtCalidadEvidenciaDescripcionIntegridad.BackColor = colorResaltado;
-            
+
             if (matriz.CalidadEvidenciaDescripcionRevisionesGerencia != matrizAnterior.CalidadEvidenciaDescripcionRevisionesGerencia)
                 this.txtCalidadEvidenciaDescripcionRevisionesGerencia.BackColor = colorResaltado;
-            
+
             if (matriz.CalidadEvidenciaDescripcionTransaccion != matrizAnterior.CalidadEvidenciaDescripcionTransaccion)
                 this.txtCalidadEvidenciaDescripcionTransaccion.BackColor = colorResaltado;
-            
+
             if (matriz.Codigo != matrizAnterior.Codigo)
                 this.listCodigoAplicacion.BackColor = colorResaltado;
-            
-            if (matriz.CodigoActividadControl!= matrizAnterior.CodigoActividadControl)
+
+            if (matriz.CodigoActividadControl != matrizAnterior.CodigoActividadControl)
                 this.listCodigoActividadControl.BackColor = colorResaltado;
-            
+
             if (matriz.CodigoAplicacion != matrizAnterior.CodigoAplicacion)
                 this.listCodigoAplicacion.BackColor = colorResaltado;
 
@@ -174,7 +229,7 @@ namespace ConexionWeb.MatrizControles
             if (matriz.CodigoPuntoControl != matrizAnterior.CodigoPuntoControl)
                 this.listCodigoPuntoDeControl.BackColor = colorResaltado;
 
-            if (matriz.CodigoSOX!= matrizAnterior.CodigoSOX)
+            if (matriz.CodigoSOX != matrizAnterior.CodigoSOX)
                 this.listRiesgos.BackColor = colorResaltado;
 
             if (matriz.CodigoTiempoAplicacion != matrizAnterior.CodigoTiempoAplicacion)
@@ -183,10 +238,10 @@ namespace ConexionWeb.MatrizControles
             if (matriz.CodigoTipoControl != matrizAnterior.CodigoTipoControl)
                 this.listTipoControl.BackColor = colorResaltado;
 
-            if (matriz.ControlCompensatorioCodigoAplicacion!= matrizAnterior.ControlCompensatorioCodigoAplicacion)
+            if (matriz.ControlCompensatorioCodigoAplicacion != matrizAnterior.ControlCompensatorioCodigoAplicacion)
                 this.listControlCompensatorioCodigoAplicacion.BackColor = colorResaltado;
 
-            if (matriz.ControlCompensatorioDescripcion!= matrizAnterior.ControlCompensatorioDescripcion)
+            if (matriz.ControlCompensatorioDescripcion != matrizAnterior.ControlCompensatorioDescripcion)
                 this.txtControlCompensatorioDescripcion.BackColor = colorResaltado;
 
             if (matriz.ControlCompensatorioDescripcionEvidencia != matrizAnterior.ControlCompensatorioDescripcionEvidencia)
@@ -207,7 +262,7 @@ namespace ConexionWeb.MatrizControles
             if (matriz.DescripcionActividadesTercero != matrizAnterior.DescripcionActividadesTercero)
                 this.txtDescripcionActividadesTercero.BackColor = colorResaltado;
 
-            if (matriz.EvidenciaCodigoHerramientaAlmacenamiento  != matrizAnterior.EvidenciaCodigoHerramientaAlmacenamiento)
+            if (matriz.EvidenciaCodigoHerramientaAlmacenamiento != matrizAnterior.EvidenciaCodigoHerramientaAlmacenamiento)
                 this.listEvidenciaCodigoHerramientaAlmacenamiento.BackColor = colorResaltado;
 
             if (matriz.EvidenciaCodigoTiempoPermanencia != matrizAnterior.EvidenciaCodigoTiempoPermanencia)
@@ -216,7 +271,7 @@ namespace ConexionWeb.MatrizControles
             if (matriz.EvidenciaDescripcionRestricciones != matrizAnterior.EvidenciaDescripcionRestricciones)
                 this.txtEvidenciaDescripcionRestricciones.BackColor = colorResaltado;
 
-            if (matriz.EvidenciaDescripcionRevision!= matrizAnterior.EvidenciaDescripcionRevision)
+            if (matriz.EvidenciaDescripcionRevision != matrizAnterior.EvidenciaDescripcionRevision)
                 this.txtEvidenciaDescripcionRevision.BackColor = colorResaltado;
 
             if (matriz.EvidenciaRutaArchivos != matrizAnterior.EvidenciaRutaArchivos)
@@ -255,7 +310,7 @@ namespace ConexionWeb.MatrizControles
             var puntosControl = Servicio.ObtenerPuntosControl();
             foreach (var item in puntosControl)
             {
-                ListItem newItem = new ListItem(item.PuntoDeControl, item.Codigo);
+                ListItem newItem = new ListItem(item.PuntoDeControl, item.Codigo.ToString());
                 this.listCodigoPuntoDeControl.Items.Add(newItem);
             }
         }
@@ -280,7 +335,7 @@ namespace ConexionWeb.MatrizControles
                 this.listCodigoAplicacion.Items.Add(newItem);
                 this.listCalidadEvidenciaCodigoAplicacion.Items.Add(newItemB);
                 this.listControlCompensatorioCodigoAplicacion.Items.Add(newItemC);
-                if(item.HerramientaAlmacenamiento == "True")
+                if (item.HerramientaAlmacenamiento == "True")
                     this.listEvidenciaCodigoHerramientaAlmacenamiento.Items.Add(newItemD);
             }
         }
@@ -328,7 +383,7 @@ namespace ConexionWeb.MatrizControles
                     PonerSoloLecturaChildControls(item);
                 }
                 this.btnActualizar.Visible = false;
-                if(modeRead)
+                if (modeRead)
                     this.btnCancelar.Visible = true;
                 else
                     this.btnCancelar.Visible = false;
@@ -355,7 +410,7 @@ namespace ConexionWeb.MatrizControles
                 default:
                     break;
             }
-            if(!string.IsNullOrEmpty(respuesta))
+            if (!string.IsNullOrEmpty(respuesta))
                 Response.Write("<script>alert('" + respuesta + "');location.href='/MatrizControles/ConsultarMatrizControles'</script>");
         }
 
@@ -374,7 +429,7 @@ namespace ConexionWeb.MatrizControles
             matrizActual.Estado = "RevisionModificacion";
             Servicio.CrearActualizarMatrizControl(matrizActual);
             return Servicio.CrearActualizarMatrizControlPorAprobar(matrizModificada);
-            
+
         }
 
         private string AprobarRechazarModificacion()
@@ -392,13 +447,13 @@ namespace ConexionWeb.MatrizControles
                 this.lblMessage.Text = "Debe escribir las observaciones de la aprobación/rechazo.";
                 return string.Empty;
             }
-            
+
             var matrizModificada = Servicio.ObtenerMatrizControlPorAprobar(Request["Codigo"]);
             var matrizOriginal = Servicio.ObtenerMatrizControl(Request["Codigo"]);
-            
+
             if (this.listAprobarCambios.SelectedValue == "Si")
             {
-                matrizOriginal = matrizModificada;
+                //matrizOriginal = matrizModificada;
                 matrizOriginal.Estado = "AprobacionModificacion";
                 matrizOriginal.ModificacionAprobado = true;
             }
@@ -406,13 +461,13 @@ namespace ConexionWeb.MatrizControles
             {
                 matrizOriginal.ModificacionAprobado = false;
             }
-            
+
             matrizModificada.ModificacionFechaAprobacion = DateTime.Now;
             matrizOriginal.ModificacionFechaAprobacion = DateTime.Now;
             matrizOriginal.ModificacionObservaciones = this.txtObservacionesAprobacion.Text;
             Servicio.CrearActualizarMatrizControlPorAprobar(matrizModificada);
             return Servicio.CrearActualizarMatrizControl(matrizOriginal);
-            
+
         }
 
         private ConexionSOXService.MatrizControles ObtenerDatosMatrizControles()
@@ -426,8 +481,8 @@ namespace ConexionWeb.MatrizControles
             matriz.CalidadEvidenciaDescripcionIntegridad = this.txtCalidadEvidenciaDescripcionIntegridad.Text;
             matriz.CalidadEvidenciaDescripcionRevisionesGerencia = this.txtCalidadEvidenciaDescripcionRevisionesGerencia.Text;
             matriz.CalidadEvidenciaDescripcionTransaccion = this.txtCalidadEvidenciaDescripcionTransaccion.Text;
-            
-                
+
+
             matriz.CodigoActividadControl = this.listCodigoActividadControl.SelectedValue;
             matriz.CodigoAplicacion = ObtenerElementoSeleccionados(this.listCodigoAplicacion);
             matriz.CodigoDocumento = ObtenerElementoSeleccionados(this.listCodigoDocumento);

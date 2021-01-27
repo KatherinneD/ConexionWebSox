@@ -27,20 +27,36 @@ namespace ConexionWeb.ObjetivoControl
                 {
                     CargarInformacionObjetivosControl(Request["Codigo"]);
                 }
+                else 
+                {
+                    CargarConsecutivoCodigo();
+                }
             }
+        }
+
+        private void CargarConsecutivoCodigo() 
+        {
+            var servicio = new ConexionSOXService.ConexionSOXServiceClient();
+            txtCodigo.Text = servicio.ObtenerConsecutivoObjetivoControl().ToString();
         }
 
         private void CargarInformacionObjetivosControl(string codigo)
         {
             var servicio = new ConexionSOXService.ConexionSOXServiceClient();
-            var objetivoControl = servicio.ObtenerObjetivoControl(codigo);
-            
+            var objetivoControl = servicio.ObtenerObjetivoControl(int.Parse(codigo));
+
             if (objetivoControl != null)
             {
-                this.txtCodigo.Text = objetivoControl.Codigo;
+                this.txtCodigo.Text = objetivoControl.Codigo.ToString();
                 this.txtObjetivoControl.Text = objetivoControl.ObjetivoDeControl;
                 this.lstEstados.SelectedValue = objetivoControl.Estado;
                 this.btnActualizar.Text = "Actualizar";
+            }
+
+            if (objetivoControl.Estado == "Uso") 
+            {
+                this.txtCodigo.Enabled = false;
+                this.txtObjetivoControl.Enabled = false;
             }
         }
 
@@ -72,7 +88,7 @@ namespace ConexionWeb.ObjetivoControl
             var respuesta = servicio.CrearActualizarObjetivosControl(new ConexionSOXService.ObjetivoControl()
             {
                 Autor = User.Identity.Name,
-                Codigo = this.txtCodigo.Text,
+                Codigo = int.Parse(this.txtCodigo.Text),
                 ObjetivoDeControl = this.txtObjetivoControl.Text,
                 InactivadoPor = inactivadoPor,
                 Estado = this.lstEstados.SelectedValue

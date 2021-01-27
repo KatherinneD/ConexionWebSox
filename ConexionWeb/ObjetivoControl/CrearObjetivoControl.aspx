@@ -22,6 +22,7 @@
             <div  class="col-md-10">
                 <asp:DropDownList runat="server" ID="lstEstados">
                     <asp:ListItem Value="Activo" Text="Activo"></asp:ListItem>
+                    <asp:ListItem Value="Uso" Text="En uso"></asp:ListItem>
                     <asp:ListItem Value="Inactivo" Text="Inactivo"></asp:ListItem>
                 </asp:DropDownList> 
             </div>

@@ -16,7 +16,12 @@ namespace ConexionWeb.Bussiness
             return query;
         }
 
-        public ObjetivoControl ObtenerObjetivoControl(string codigo)
+        public int ObtenerNuevoCodigoObjetivoControl()
+        {
+            return ctx.ObjetivosControl.Max(m => m.Codigo) + 1;
+        }
+
+        public ObjetivoControl ObtenerObjetivoControl(int codigo)
         {
             return ctx.ObjetivosControl.SingleOrDefault(c => c.Codigo == codigo);
         }

@@ -89,7 +89,10 @@ namespace ConexionWeb.Service
         IList<PuntoControl> ObtenerPuntosControl();
 
         [OperationContract]
-        PuntoControl ObtenerPuntoControl(string codigo);
+        int ObtenerConsecutivoPuntoControl();
+
+        [OperationContract]
+        PuntoControl ObtenerPuntoControl(int codigo);
 
         [OperationContract]
         string CrearActualizarPuntosControl(PuntoControl puntoControl);
@@ -102,7 +105,10 @@ namespace ConexionWeb.Service
         IList<ObjetivoControl> ObtenerObjetivosControl();
 
         [OperationContract]
-        ObjetivoControl ObtenerObjetivoControl(string codigo);
+        int ObtenerConsecutivoObjetivoControl();
+
+        [OperationContract]
+        ObjetivoControl ObtenerObjetivoControl(int codigo);
 
         [OperationContract]
         string CrearActualizarObjetivosControl(ObjetivoControl objetivoControl);

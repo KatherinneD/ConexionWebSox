@@ -174,7 +174,7 @@ namespace ConexionWeb.Bussiness
                         {
                             PuntoControl nuevoPuntoControl = new PuntoControl
                             {
-                                Codigo = record.Codigo.Length > 100 ? record.Codigo.Substring(0, 100) : record.Codigo,
+                                Codigo = record.Codigo,
                                 PuntoDeControl = record.PuntoControl
                             };
                             puntoControlBL.CrearActualizarPuntoControl(nuevoPuntoControl);

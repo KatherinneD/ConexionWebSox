@@ -27,20 +27,36 @@ namespace ConexionWeb.PuntoControl
                 {
                     CargarInformacionPuntosControl(Request["Codigo"]);
                 }
+                else
+                {
+                    CargarConsecutivoCodigo();
+                }
             }
+        }
+
+        private void CargarConsecutivoCodigo()
+        {
+            var servicio = new ConexionSOXService.ConexionSOXServiceClient();
+            txtCodigo.Text = servicio.ObtenerConsecutivoPuntoControl().ToString();
         }
 
         private void CargarInformacionPuntosControl(string codigo)
         {
             var servicio = new ConexionSOXService.ConexionSOXServiceClient();
-            var PuntoControl = servicio.ObtenerPuntoControl(codigo);
+            var PuntoControl = servicio.ObtenerPuntoControl(int.Parse(codigo));
 
             if (PuntoControl != null)
             {
-                this.txtCodigo.Text = PuntoControl.Codigo;
+                this.txtCodigo.Text = PuntoControl.Codigo.ToString();
                 this.txtPuntoControl.Text = PuntoControl.PuntoDeControl;
                 this.lstEstados.SelectedValue = PuntoControl.Estado;
                 this.btnActualizar.Text = "Actualizar";
+            }
+
+            if (PuntoControl.Estado == "Uso")
+            {
+                this.txtCodigo.Enabled = false;
+                this.txtPuntoControl.Enabled = false;
             }
         }
 
@@ -72,7 +88,7 @@ namespace ConexionWeb.PuntoControl
             var respuesta = servicio.CrearActualizarPuntosControl(new ConexionSOXService.PuntoControl()
             {
                 Autor = User.Identity.Name,
-                Codigo = this.txtCodigo.Text,
+                Codigo = int.Parse(this.txtCodigo.Text),
                 PuntoDeControl = this.txtPuntoControl.Text,
                 InactivadoPor = inactivadoPor,
                 Estado = this.lstEstados.SelectedValue

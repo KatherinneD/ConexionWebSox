@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:11774/ConexionSOXService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:13256/ConexionSOXService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ConexionSOXService3.xsd" MetadataType="Schema" ID="9077fcfa-06af-40ff-9c3a-18a1229aef5d" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ConexionSOXService31.xsd" MetadataType="Schema" ID="daac37c3-4710-4a24-9bb9-0cad6564e17c" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ConexionSOXService1.disco" MetadataType="Disco" ID="71bbce85-7618-46be-b1e5-d845644192d6" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?disco" />
-    <MetadataFile FileName="ConexionSOXService32.xsd" MetadataType="Schema" ID="2c2c0964-fd00-4afa-abe6-817735bdb23f" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ConexionSOXService1.wsdl" MetadataType="Wsdl" ID="0d0690be-4395-4239-a62a-ad33d261f2f6" SourceId="1" SourceUrl="http://localhost:11774/ConexionSOXService.svc?wsdl" />
+    <MetadataFile FileName="ConexionSOXService.xsd" MetadataType="Schema" ID="4538a4b7-2dda-4575-b5e9-d4b23872a50e" SourceId="1" SourceUrl="http://localhost:13256/ConexionSOXService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ConexionSOXService1.xsd" MetadataType="Schema" ID="bea377e9-7fb3-4362-a72e-bb3b77b150be" SourceId="1" SourceUrl="http://localhost:13256/ConexionSOXService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ConexionSOXService2.xsd" MetadataType="Schema" ID="e20d8063-df67-4494-a839-69f4625493c0" SourceId="1" SourceUrl="http://localhost:13256/ConexionSOXService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ConexionSOXService.wsdl" MetadataType="Wsdl" ID="e7a16e5e-1f4b-418b-83b7-4531d1c7df5f" SourceId="1" SourceUrl="http://localhost:13256/ConexionSOXService.svc?wsdl" />
+    <MetadataFile FileName="ConexionSOXService.disco" MetadataType="Disco" ID="549526b5-db2e-42e1-a80e-d17f3a637115" SourceId="1" SourceUrl="http://localhost:13256/ConexionSOXService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -45,6 +45,7 @@ namespace ConexionWeb.DataAcess
                 {
                     Codigo ="RS005",
                     Descripcion ="Riesgo Corporativo 5",
+                    Nivel = "Nivel 5",
                     Tipo = "A"
                 }
             };

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace ConexionWeb.Bussiness.CSVEntities
 {
-    [DelimitedRecord("|")]
+    [DelimitedRecord("|"), IgnoreFirst(1)]
     public class ObjetivoControlCSV
     {
-        public string Codigo { get; set; }
+        public int Codigo { get; set; }
 
         public string ObjetivoControl { get; set; }
     }

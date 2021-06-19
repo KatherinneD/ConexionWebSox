@@ -46,6 +46,8 @@ namespace ConexionWeb.Models
         public DateTime? ControlCompensatorioFechaCreacion { get; set; }
         public string ControlCompensatorioNotificarJefeArea { get; set; }
         public DateTime? ModificacionFechaAprobacion { get; set; }
+
+       // public DateTime? FechaCreacionControl { get; set; }
         public bool ModificacionAprobado { get; set; }
         public string ModificacionObservaciones { get; set; }
 

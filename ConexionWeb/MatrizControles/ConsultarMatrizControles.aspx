@@ -16,7 +16,7 @@
             <asp:BoundField DataField="Autor" HeaderText="Creada por" />
             <asp:BoundField DataField="Estado" HeaderText="Estado" />
             <asp:BoundField DataField="ModificacionAprobado" HeaderText="Aprobado?" />
-            <asp:BoundField DataField="ModificacionFechaAprobacion" HeaderText="Fecha aprobación/rechazo" />
+            <asp:BoundField DataField="ModificacionFechaAprobacion" HeaderText="Fecha de creación del control" />
             <asp:BoundField DataField="ModificacionObservaciones" HeaderText="Observaciones aprobación/rechazo" />
             <asp:TemplateField>
                 <ItemTemplate>

@@ -37,6 +37,7 @@ namespace ConexionWeb.RiesgoSOX
                 }
 
                 string numero = lstRiesgosCorporativos.SelectedItem.Text;
+                txtRiesgoSOX.Text = "SOX-T-" + numero;
                 spanCodigo.InnerText = "SOX-T-" + numero;
             }
         }
@@ -201,6 +202,7 @@ namespace ConexionWeb.RiesgoSOX
         protected void lstRiesgosCorporativos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string numero = lstRiesgosCorporativos.SelectedItem.Text;
+            txtRiesgoSOX.Text = "SOX-T-" + numero;
             spanCodigo.InnerText = "SOX-T-" + numero;
         }
     }

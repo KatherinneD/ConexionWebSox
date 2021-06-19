@@ -421,7 +421,7 @@ namespace ConexionWeb.ConexionSOXService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> ModificacionFechaAprobacionField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ResponsableControlField;
         
@@ -889,7 +889,7 @@ namespace ConexionWeb.ConexionSOXService {
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ResponsableControl {
             get {
@@ -1029,7 +1029,7 @@ namespace ConexionWeb.ConexionSOXService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> ModificacionFechaAprobacionField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModificacionObservacionesField;
         
@@ -1513,7 +1513,9 @@ namespace ConexionWeb.ConexionSOXService {
                 }
             }
         }
-        
+
+
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ModificacionObservaciones {
             get {

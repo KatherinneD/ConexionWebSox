@@ -28,7 +28,30 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            
+            <br />
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Código descripción de control</span></div>
+                <div class="col-md-10">
+                    <asp:DropDownList CssClass="form-control" runat="server" ID="DropDownList2">
+                        <asp:ListItem Text="SOX1" Value="SOX1"></asp:ListItem>
+                        <asp:ListItem Text="SOX-T-RS001" Value="SOX-T-RS001"></asp:ListItem>
+                        <asp:ListItem Text="SOX-T-RS003" Value="SOX-T-RS003"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Control ITGC's</span></div>
+                <div class="col-md-10">
+                    <asp:DropDownList CssClass="form-control" runat="server" ID="DropDownList1">
+                        <asp:ListItem Text="Criterio 1" Value="Criterio1"></asp:ListItem>
+                        <asp:ListItem Text="Criterio 1" Value="Criterio1"></asp:ListItem>
+                        <asp:ListItem Text="Criterio 3" Value="Criterio3"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="col-md-2"><span class="control-label">Estado:</span></div>
                 <div class="col-md-10">
@@ -82,14 +105,14 @@
                     <asp:TextBox CssClass="form-control" runat="server" ID="txtDescripcionControl" TextMode="MultiLine"></asp:TextBox>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <div class="col-md-2"><span class="control-label">Aplicación :</span></div>
                 <div class="col-md-10">
                     <asp:CheckBoxList runat="server" ID="listCodigoAplicacion"></asp:CheckBoxList>
                 </div>
             </div>
-            <div class="form-group">
+            <%--            <div class="form-group">
                 <div class="col-md-2"><span class="control-label">Documento:</span></div>
                 <div class="col-md-10">
                     <asp:CheckBoxList runat="server" ID="listCodigoDocumento">
@@ -98,6 +121,38 @@
                         <asp:ListItem Text="Procedimiento"></asp:ListItem>
                     </asp:CheckBoxList>
 
+                </div>
+            </div>--%>
+
+
+            <br />
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Control ITGC's</span></div>
+                <div class="col-md-10">
+                    <asp:DropDownList CssClass="form-control" runat="server" ID="listCodigoDocumento">
+                        <asp:ListItem Text="B-GRH-PI-010100	" Value="B-GRH-PI-010100"></asp:ListItem>
+                        <asp:ListItem Text="B-VTI-PI-010800" Value="B-VTI-PI-010800"></asp:ListItem>
+                        <asp:ListItem Text="B-VTI-PI-011500" Value="B-VTI-PI-011500"></asp:ListItem>
+                        <asp:ListItem Text="C-VTI-SP-011201" Value="C-VTI-SP-011201"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-010205" Value="SEG-PO-010205"></asp:ListItem>
+                        <asp:ListItem Text="C-VTI-SP-014003" Value="C-VTI-SP-014003"></asp:ListItem>
+                        <asp:ListItem Text="PC_CAM" Value="PC_CAM"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-01020035" Value="SEG-PO-01020035"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-01010107" Value="SEG-PO-01010107"></asp:ListItem>
+                        <asp:ListItem Text="EMP-DT-0105061703" Value="EMP-DT-0105061703"></asp:ListItem>
+                        <asp:ListItem Text="SEG-POL-010004" Value="SEG-POL-010004"></asp:ListItem>
+                        <asp:ListItem Text="SEG-POL-010004" Value="SEG-POL-010004"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-010210" Value="SEG-PO-010210"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-01020036" Value="SEG-PO-01020036"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-010207" Value="SEG-PO-010207"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-010211" Value="SEG-PO-010211"></asp:ListItem>
+                        <asp:ListItem Text="VTI-IS-01400001" Value="VTI-IS-01400001"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-01030001" Value="SEG-PO-01030001"></asp:ListItem>
+                        <asp:ListItem Text="SEG-PO-010216" Value="SEG-PO-010216"></asp:ListItem>
+                        <asp:ListItem Text="VTI-PO-01100003" Value="VTI-PO-01100003"></asp:ListItem>
+                        <asp:ListItem Text="VTI-PO-01040001" Value="VTI-PO-01040001"></asp:ListItem>
+                        <asp:ListItem Text="VTI-IS-01400301" Value="VTI-IS-01400301"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
@@ -166,61 +221,61 @@
         </div>
         <!--Fin Sección-->
         <!--Inicio Sección-->
-        
-            <a href="#menu3<%= this.IDAleatorioUI %>" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-collapsed">Evidencias</span>
-                    <span class="submenu-icon ml-auto"></span>
-                </div>
-            </a>
-            <div id='menu3<%= this.IDAleatorioUI %>' class="collapse sidebar-submenu">
-                <br />
-                <div id="divEvidencias" runat="server">
+
+        <a href="#menu3<%= this.IDAleatorioUI %>" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="menu-collapsed">Evidencias</span>
+                <span class="submenu-icon ml-auto"></span>
+            </div>
+        </a>
+        <div id='menu3<%= this.IDAleatorioUI %>' class="collapse sidebar-submenu">
+            <br />
+            <div id="divEvidencias" runat="server">
                 <div class="form-group">
                     <div class="col-md-2"><span class="control-label">Evidencia:</span></div>
                     <div class="col-md-10">
                         <asp:FileUpload runat="server" ID="listEvidencias" AllowMultiple="true"></asp:FileUpload>
                         <asp:Label CssClass="form-control" runat="server" ID="txtEvidenciasArchivos"></asp:Label>
                     </div>
-                </div>    
-                    </div>
-                <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Descripción de la evidencia se deja:</span></div>
-                    <div class="col-md-10">
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcion" TextMode="MultiLine"></asp:TextBox>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Descripción de cómo se evidencia la revisión o aprobación del control:</span></div>
-                    <div class="col-md-10">
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcionRevision" TextMode="MultiLine"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Asociar el código de la herramienta donde se almacena:</span></div>
-                    <div class="col-md-10">
-                        <asp:DropDownList runat="server" ID="listEvidenciaCodigoHerramientaAlmacenamiento" DataValueField="NombreAplicacion" DataTextField="NombreAplicacion">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Descripción de las restricciones de seguridad en la evidencia:</span></div>
-                    <div class="col-md-10">
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcionRestricciones" TextMode="MultiLine"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Tiempo de permanencia de archivo:</span></div>
-                    <div class="col-md-10">
-                        <asp:DropDownList runat="server" ID="listEvidenciaCodigoTiempoPermanencia">
-                            <asp:ListItem Value="PermanenciaA" Text="Permanencia A" Selected="True"></asp:ListItem>
-                            <asp:ListItem Value="PermanenciaB" Text="Permanencia B"></asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                
             </div>
-        
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Descripción de la evidencia se deja:</span></div>
+                <div class="col-md-10">
+                    <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcion" TextMode="MultiLine"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Descripción de cómo se evidencia la revisión o aprobación del control:</span></div>
+                <div class="col-md-10">
+                    <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcionRevision" TextMode="MultiLine"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Asociar el código de la herramienta donde se almacena:</span></div>
+                <div class="col-md-10">
+                    <asp:DropDownList runat="server" ID="listEvidenciaCodigoHerramientaAlmacenamiento" DataValueField="NombreAplicacion" DataTextField="NombreAplicacion">
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Descripción de las restricciones de seguridad en la evidencia:</span></div>
+                <div class="col-md-10">
+                    <asp:TextBox CssClass="form-control" runat="server" ID="txtEvidenciaDescripcionRestricciones" TextMode="MultiLine"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"><span class="control-label">Tiempo de permanencia de archivo:</span></div>
+                <div class="col-md-10">
+                    <asp:DropDownList runat="server" ID="listEvidenciaCodigoTiempoPermanencia">
+                        <asp:ListItem Value="PermanenciaA" Text="Permanencia A" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="PermanenciaB" Text="Permanencia B"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+
+        </div>
+
         <!--Fin Sección-->
         <!--Inicio Sección-->
         <a href="#menu2<%= this.IDAleatorioUI %>" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
@@ -232,66 +287,66 @@
         <div id='menu2<%= this.IDAleatorioUI %>' class="collapse sidebar-submenu">
             <br />
             <div class="form-group">
-                    <div class="col-md-2"><span class="control-label">Calidad de la evidencia – Reporte generado (Si/No)?</span></div>
-                    <div class="col-md-10">
-                        <input type="checkbox" onclick="MostrarSeccionDesdeCheckBox('calidadEvidencia', this)" />
-                    </div>
+                <div class="col-md-2"><span class="control-label">Calidad de la evidencia – Reporte generado (Si/No)?</span></div>
+                <div class="col-md-10">
+                    <input type="checkbox" onclick="MostrarSeccionDesdeCheckBox('calidadEvidencia', this)" />
                 </div>
+            </div>
             <div class="calidadEvidencia">
-                    <!--Inicio calidad evidencia-->
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Descripción del reporte:</span></div>
-                        <div class="col-md-10">
-                            <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcion" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Aplicacion:</span></div>
-                        <div class="col-md-10">
-                            <asp:DropDownList CssClass="form-control" runat="server" ID="listCalidadEvidenciaCodigoAplicacion"></asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Descripción de la transacción por medio de la que se genera el reporte:</span></div>
-                        <div class="col-md-10">
-                            <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionTransaccion" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Tipo de reporte:</span></div>
-                        <div class="col-md-10">
-                            <asp:DropDownList runat="server" ID="listCalidadEvidenciaCodigoTipoReporte">
-                                <asp:ListItem Value="Estandar" Text="Estándar" Selected="True"></asp:ListItem>
-                                <asp:ListItem Value="Personalizado" Text="Personalizado"></asp:ListItem>
-                                <asp:ListItem Value="Query" Text="Query"></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Importancia del reporte para la ejecución del control:</span></div>
-                        <div class="col-md-10">
-                            <asp:DropDownList runat="server" ID="listCalidadEvidenciaCodigoImportanciaReporte">
-                                <asp:ListItem Value="Importante" Text="Importante" Selected="True"></asp:ListItem>
-                                <asp:ListItem Value="NoRelevante" Text="No es relevante"></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Descripción de ¿Como se asegura la integridad de la Data?:</span></div>
-                        <div class="col-md-10">
-                            <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionIntegridad" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2"><span class="control-label">Descripción de ¿Qué revisiones realiza la gerencia sobre la data utilizada para la ejecución del control?:</span></div>
-                        <div class="col-md-10">
-                            <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionRevisionesGerencia" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-                        <!--Fin calidad evidencia-->
+                <!--Inicio calidad evidencia-->
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Descripción del reporte:</span></div>
+                    <div class="col-md-10">
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcion" TextMode="MultiLine"></asp:TextBox>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Aplicacion:</span></div>
+                    <div class="col-md-10">
+                        <asp:DropDownList CssClass="form-control" runat="server" ID="listCalidadEvidenciaCodigoAplicacion"></asp:DropDownList>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Descripción de la transacción por medio de la que se genera el reporte:</span></div>
+                    <div class="col-md-10">
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionTransaccion" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Tipo de reporte:</span></div>
+                    <div class="col-md-10">
+                        <asp:DropDownList runat="server" ID="listCalidadEvidenciaCodigoTipoReporte">
+                            <asp:ListItem Value="Estandar" Text="Estándar" Selected="True"></asp:ListItem>
+                            <asp:ListItem Value="Personalizado" Text="Personalizado"></asp:ListItem>
+                            <asp:ListItem Value="Query" Text="Query"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Importancia del reporte para la ejecución del control:</span></div>
+                    <div class="col-md-10">
+                        <asp:DropDownList runat="server" ID="listCalidadEvidenciaCodigoImportanciaReporte">
+                            <asp:ListItem Value="Importante" Text="Importante" Selected="True"></asp:ListItem>
+                            <asp:ListItem Value="NoRelevante" Text="No es relevante"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Descripción de ¿Como se asegura la integridad de la Data?:</span></div>
+                    <div class="col-md-10">
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionIntegridad" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"><span class="control-label">Descripción de ¿Qué revisiones realiza la gerencia sobre la data utilizada para la ejecución del control?:</span></div>
+                    <div class="col-md-10">
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtCalidadEvidenciaDescripcionRevisionesGerencia" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <!--Fin calidad evidencia-->
+                </div>
+            </div>
         </div>
         <!--Fin Sección-->
 

@@ -95,7 +95,8 @@ namespace ConexionWeb.MatrizControles
                     this.txtCalidadEvidenciaDescripcionTransaccion.Text = matriz.CalidadEvidenciaDescripcionTransaccion;
                     this.listCodigoActividadControl.SelectedValue = matriz.CodigoActividadControl;
                     CheckBoxListSeleccionados(matriz.CodigoAplicacion, this.listCodigoAplicacion);
-                    CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
+                    this.listCodigoDocumento.SelectedValue = matriz.CodigoDocumento;
+                    //CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
                     this.listFrecuenciaControl.SelectedValue = matriz.CodigoFrecuenciaControl;
                     this.listNaturalezaControl.SelectedValue = matriz.CodigoNaturalezaControl;
                     CheckBoxListSeleccionados(matriz.CodigoPuntoControl, this.listCodigoPuntoDeControl);
@@ -147,7 +148,8 @@ namespace ConexionWeb.MatrizControles
                     this.txtCalidadEvidenciaDescripcionTransaccion.Text = matriz.CalidadEvidenciaDescripcionTransaccion;
                     this.listCodigoActividadControl.SelectedValue = matriz.CodigoActividadControl;
                     CheckBoxListSeleccionados(matriz.CodigoAplicacion, this.listCodigoAplicacion);
-                    CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
+                    this.listCodigoDocumento.SelectedValue = matriz.CodigoDocumento;
+                    //CheckBoxListSeleccionados(matriz.CodigoDocumento, this.listCodigoDocumento);
                     this.listFrecuenciaControl.SelectedValue = matriz.CodigoFrecuenciaControl;
                     this.listNaturalezaControl.SelectedValue = matriz.CodigoNaturalezaControl;
                     CheckBoxListSeleccionados(matriz.CodigoPuntoControl, this.listCodigoPuntoDeControl);
@@ -464,6 +466,7 @@ namespace ConexionWeb.MatrizControles
 
             matrizModificada.ModificacionFechaAprobacion = DateTime.Now;
             matrizOriginal.ModificacionFechaAprobacion = DateTime.Now;
+           // matrizOriginal.FechaCreacionControl = DateTime.Now;
             matrizOriginal.ModificacionObservaciones = this.txtObservacionesAprobacion.Text;
             Servicio.CrearActualizarMatrizControlPorAprobar(matrizModificada);
             return Servicio.CrearActualizarMatrizControl(matrizOriginal);
@@ -485,7 +488,8 @@ namespace ConexionWeb.MatrizControles
 
             matriz.CodigoActividadControl = this.listCodigoActividadControl.SelectedValue;
             matriz.CodigoAplicacion = ObtenerElementoSeleccionados(this.listCodigoAplicacion);
-            matriz.CodigoDocumento = ObtenerElementoSeleccionados(this.listCodigoDocumento);
+            matriz.CodigoDocumento = this.listCodigoDocumento.SelectedValue;
+            //matriz.CodigoDocumento = ObtenerElementoSeleccionados(this.listCodigoDocumento);
             matriz.CodigoFrecuenciaControl = this.listFrecuenciaControl.SelectedValue;
             matriz.CodigoNaturalezaControl = this.listNaturalezaControl.SelectedValue;
             matriz.CodigoPuntoControl = ObtenerElementoSeleccionados(this.listCodigoPuntoDeControl);
@@ -537,7 +541,8 @@ namespace ConexionWeb.MatrizControles
             matriz.CalidadEvidenciaDescripcionTransaccion = this.txtCalidadEvidenciaDescripcionTransaccion.Text;
             matriz.CodigoActividadControl = this.listCodigoActividadControl.SelectedValue;
             matriz.CodigoAplicacion = ObtenerElementoSeleccionados(this.listCodigoAplicacion);
-            matriz.CodigoDocumento = ObtenerElementoSeleccionados(this.listCodigoDocumento);
+            matriz.CodigoDocumento = this.listCodigoDocumento.SelectedValue;
+            //matriz.CodigoDocumento = ObtenerElementoSeleccionados(this.listCodigoDocumento);
             matriz.CodigoFrecuenciaControl = this.listFrecuenciaControl.SelectedValue;
             matriz.CodigoNaturalezaControl = this.listNaturalezaControl.SelectedValue;
             matriz.CodigoPuntoControl = ObtenerElementoSeleccionados(this.listCodigoPuntoDeControl);

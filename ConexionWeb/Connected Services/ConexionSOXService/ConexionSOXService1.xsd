@@ -130,7 +130,7 @@
       <xs:element minOccurs="0" name="EvidenciaDescripcionRevision" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EvidenciaRutaArchivos" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModificacionAprobado" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ModificacionFechaAprobacion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaCreacionControl" nillable="true" type="xs:dateTime" /> 
       <xs:element minOccurs="0" name="ModificacionObservaciones" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ResponsableControl" nillable="true" type="xs:string" />
     </xs:sequence>

@@ -26,6 +26,7 @@
             <asp:BoundField DataField="Codigo" HeaderText="Código de aplicación" />
             <asp:BoundField DataField="NombreAplicacion" HeaderText="Nombre de aplicación" />
             <asp:BoundField DataField="Servidores" HeaderText="Servidores" />
+             <asp:BoundField DataField="InactivadoPor" HeaderText="Usuario que inactivó" />
             <asp:BoundField DataField="Estado" HeaderText="Estado" />
             <asp:TemplateField>
                 <ItemTemplate>

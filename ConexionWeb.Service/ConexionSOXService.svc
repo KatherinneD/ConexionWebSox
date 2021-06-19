@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ConexionWeb.Service.ConexionSOXService" CodeBehind="ConexionSOXService.svc.cs" %>

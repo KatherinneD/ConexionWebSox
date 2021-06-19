@@ -1,0 +1,186 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: 280px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+}
+
+.column{
+
+}
+.row {
+    display:inline-flex;
+}
+.barraMenuLateral .navbar-nav > li {
+    width: 100%;
+}
+.navbar-inverse {
+    background-color: #62ad2a;
+    border-color: #62ad2a;
+}
+.logoTelefonica {
+    max-width: 150px;
+    vertical-align: text-top;
+    float: right;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: antiquewhite;
+}
+.lblError{
+    color:red;
+}
+.lblConfirmacion {
+    text-decoration:dashed;
+}
+.barraMenuLateral{
+    max-width:14%;
+}
+.contenidoPrincipal .row{
+    width:75%;
+}
+.contenidoPrincipal {
+    display: flow-root;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin-top: 21px;
+}
+.logoSOX {
+    width: 50%;
+    border-radius: 131%;
+    box-shadow: 3px 3px 10px white;
+    filter: brightness(0.5);
+}
+
+
+#body-row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    padding: 0;
+    margin-top:21px;
+}
+
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {
+    width: 310px;
+}
+
+.sidebar-collapsed {
+    width: 60px;
+}
+
+/* Menu item*/
+#sidebar-container .list-group a {
+    height: 50px;
+}
+
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+/* Separators */
+.sidebar-separator-title {
+    background-color: #333;
+    height: 35px;
+}
+
+.sidebar-separator {
+    background-color: #333;
+    height: 25px;
+}
+
+.logo-separator {
+    background-color: #333;
+    height: 60px;
+}
+
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+    font-weight: 900;
+    float: right;
+}
+/* Opened submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+    content: "\f068";
+    font-family: "Font Awesome 5 Free";
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+    font-weight: 900;
+    float: right;
+}
+.body-content {
+    width: 100%;
+}
+.imagenMenu {
+    text-align:center;
+}
+.imagenIzquierda{
+    margin-top:100px;
+}
+.headLogin {
+    display: -webkit-box;
+}
+.paginaLogin{
+
+}
+.paginaLogin .child{
+
+}
+.fa-user:before{
+    color:green;
+}
+.logoutButton {
+    display: inline !important;
+}
+.tdURL {
+    word-break: break-all;
+}

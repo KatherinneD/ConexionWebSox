@@ -33,11 +33,14 @@ namespace ConexionWeb.Perfiles
 
         private void CargarInformacionRol()
         {
-            var rolSeleccionado = roles.Where(e => e.Name == Request["Rol"]).First();
+
             var roleStore = new RoleStore<IdentityRole>();
             var roleMngr = new RoleManager<IdentityRole>(roleStore);
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roles = roleMngr.Roles.ToList();
+
+
+            var rolSeleccionado = roles.Where(e => e.Name == Request["Rol"]).First();
 
             this.txtRol.Text = Request["Rol"];
             foreach (var usuario in manager.Users)

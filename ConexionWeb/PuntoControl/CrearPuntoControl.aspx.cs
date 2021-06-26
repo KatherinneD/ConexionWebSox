@@ -93,6 +93,7 @@ namespace ConexionWeb.PuntoControl
                 InactivadoPor = inactivadoPor,
                 Estado = this.lstEstados.SelectedValue
             });
+
             Response.Write("<script>alert('" + respuesta + "');location.href='/PuntoControl/ConsultarPuntosControl'</script>");
         }
 

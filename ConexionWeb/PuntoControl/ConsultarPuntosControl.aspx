@@ -7,7 +7,6 @@
     <div class="form-horizontal">
         <div class ="form-group">
             <div class="col-md-2"><asp:FileUpload CssClass="btn btn-default" runat="server" ID="cargarPuntosControl" /></div>
-            
          </div>
         <div class ="form-group">
         <div class="col-md-2"><asp:Button CssClass="btn btn-default" runat="server" ID="btnCargarPuntosControl" Text="Cargar PuntosControl" OnClick="btnCargarPuntosControl_Click" /></div>

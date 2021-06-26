@@ -50,15 +50,21 @@ namespace ConexionWeb.Perfiles
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+
+
                 GridViewRow fila = e.Row;
-                ImageButton imageControl = fila.FindControl("editButton") as ImageButton;
-                if (imageControl != null)
-                    imageControl.PostBackUrl = "/Perfiles/EditarUsuario.aspx?User=" + gvUsuarios.DataKeys[fila.RowIndex].Values[0];
+
 
                 ListBox control = fila.FindControl("listRoles") as ListBox;
                 ApplicationUser user = e.Row.DataItem as ApplicationUser;
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 List<string> roles = manager.GetRoles(user.Id).ToList();
+
+                ImageButton imageControl = fila.FindControl("editButton") as ImageButton;
+                if (imageControl != null)
+                    imageControl.PostBackUrl = "/Perfiles/EditarUsuario.aspx?User=" + gvUsuarios.DataKeys[fila.RowIndex].Values[0];
+
+
 
                 control.DataSource = roles;
                 control.DataBind();

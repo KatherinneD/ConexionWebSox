@@ -9,6 +9,7 @@ namespace ConexionWeb.Perfiles
     [DelimitedRecord("|")]
     public class UsuarioCSV
     {
+
         public string Usuario { get; set; }
         public string Identificacion { get; set; }
         public string Nombre { get; set; }

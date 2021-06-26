@@ -18,6 +18,7 @@
     <br />
     <asp:Label runat="server" ID="lblConfirmacion" CssClass="lblConfirmacion"></asp:Label>
     <br />
+
     <asp:GridView ID="gvRiesgos" CssClass="table table-responsive table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="Codigo" HeaderText="Código" />
